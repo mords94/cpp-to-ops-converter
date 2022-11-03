@@ -20,15 +20,20 @@
 #include "llvm/Support/SourceMgr.h"
 #include "llvm/Support/ToolOutputFile.h"
 
-#include "Standalone/StandaloneDialect.h"
+
+using namespace llvm;
+
+
+static cl::opt<std::string> inputFilename(cl::Positional,
+                                          cl::desc("<kernel mlir file>"),
+                                          cl::init("-"),
+                                          cl::value_desc("filename"));
 
 int main(int argc, char **argv) {
-  mlir::registerAllPasses();
-  // TODO: Register standalone passes here.
+  // mlir::registerAllPasses();
 
   mlir::DialectRegistry registry;
-  registry.insert<mlir::standalone::StandaloneDialect,
-                  mlir::arith::ArithDialect, mlir::func::FuncDialect>();
+  registry.insert<mlir::arith::ArithDialect, mlir::func::FuncDialect>();
   // Add the following to include *all* MLIR Core dialects, or selectively
   // include what you need like above. You only need to register dialects that
   // will be *parsed* by the tool, not the one generated
