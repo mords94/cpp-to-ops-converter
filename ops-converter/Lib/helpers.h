@@ -11,4 +11,6 @@ int parseMlir(mlir::MLIRContext &context,
               mlir::OwningOpRef<mlir::ModuleOp> &module,
               llvm::StringRef inputFilename);
 
+void readSourceFile(llvm::StringRef filename, std::vector<std::string> &lines);
+
 #endif

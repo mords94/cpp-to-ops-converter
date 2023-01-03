@@ -1,0 +1,192 @@
+{% extends "_base.html" %}
+{% block body %}
+
+
+<main class="container-fluid">
+
+    <div class="row" style="display: flex; flex-direction: row;">
+        <div style="width: 300px;">
+            <div style="height: 100vh; overflow-y: scroll;">
+                <nav id="navbar" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                    <nav class="nav nav-pills flex-column">
+                        {% for function in functions %}
+                        <a class="nav-link" href="#{{function.name}}">{{function.name}}</a>
+                        <!-- <nav class="nav nav-pills flex-column">
+                            {% for l in function.loops %}
+                            <a class="nav-link ms-3 my-1" href="#{{function.name}}-{{loop.index}}">Loop nest
+                                #{{loop.index}}</a>
+                            {% endfor %}
+                        </nav> -->
+                        {% endfor %}
+                    </nav>
+                </nav>
+            </div>
+        </div>
+
+        <div style="width: calc(100vw - 300px);">
+
+            <div data-bs-spy="scroll" data-bs-target="#navbar" data-bs-smooth-scroll="true" class="scrollspy-example-2"
+                tabindex="0" style="height: 100vh; overflow-y: scroll;">
+                {% for function in functions %}
+
+                <div id="{{function.name}}" class="my-4">
+                    <div class="card">
+                        <h5 class="card-header">{{function.name}}</h5>
+                        <div class="card-body">
+                            <div class="accordion accordion-flush" id="accordion-{{function.name}}">
+
+
+                                {% for l in function.loops %}
+                                {% set loop_index = loop.index0 %}
+                                <div class="accordion-item" id="{{function.name}}-{{loop.index}}">
+                                    <h2 class="accordion-header" id="heading-{{function.name}}-{{loop.index}}">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapse-{{function.name}}-{{loop.index}}">
+                                            Loop nest #{{loop.index}} <span
+                                                class="badge rounded-pill float-end bg-light text-dark">{{l.loop_position_index_range.begin}}
+                                                - {{l.loop_position_index_range.end}}</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapse-{{function.name}}-{{loop.index}}"
+                                        class="accordion-collapse collapse"
+                                        data-bs-parent="#accordion-{{function.name}}">
+                                        <div class="accordion-body">
+
+                                            <pre>
+                                <code class="language-cpp">
+{% for idx in range(l.size) -%}
+{{'  '*idx}}for(int {{indmap[idx]}} = {{l.bounds[2*idx]}}; {{indmap[idx]}} < {{l.bounds[2*idx+1]}}; {{indmap[idx]}}++ ) {{"{"}}
+{% if idx == l.size-1 %}
+{{'  '*idx}}// Read args:
+{% for arg in l.args -%}
+{%-for read in arg.read_offsets -%}
+{{'  '*idx}}{{arg.name}}[{% for index in read.indexes %}
+        {%-if index.type == "induction_var" -%}
+            {{index.stencil}}
+            {%- if index.offset != 0 -%}{{'+' if index.offset > 0 else '' }}{{index.offset-}}{%- endif -%}                            
+        {%-elif index.type == "global_memref" -%} 
+            {{index.name}}
+        {%-elif index.type == "global_constant" -%}
+           {{index.value}}
+        {%-endif -%}
+        {%-if not loop.last-%},{{' '}}{%-endif-%}
+    {%-endfor -%}]
+
+
+    {{-"\n" if loop.last else ", "-}}
+{%-endfor-%} 
+{%-endfor-%} 
+{% endif %}
+{% endfor %}
+{% for idx in range(l.size) -%}{{'  ' *(l.size-1-idx|int) }}{{"}\n"}}{% endfor %}
+                            </code>
+                                </pre>
+                                        </div>
+
+
+                                        <h3>Expression tree:</h3>
+                                        {% set carousel_key =
+                                        [function['name'],"read",loop_index]|join("_") %}
+
+                                        <div id="{{carousel_key}}" style="min-height: 400px;"
+                                            class="carousel carousel-dark slide" data-bs-ride="false">
+                                            <div class="carousel-inner">
+                                                {% for arg in l.args %}
+                                                {% set arg_index = loop.index0 %}
+
+                                                {% for read in arg.read_offsets %}
+                                                {% set read_index = loop.index0 %}
+
+
+                                                {% set base_64_key =
+                                                [function['name'],"read",loop_index,arg.name,read_index]|join("_") %}
+
+
+                                                <div id="slide-{{base_64_key}}" data-arg-index="{{arg_index}}"
+                                                    data-first="{{loop.first}}" data-read-indx="{{read_index}}"
+                                                    class="carousel-item">
+                                                    {{base64_dict[base_64_key]}}
+                                                    <div class="carousel-caption d-none d-md-block"
+                                                        style="top:0; left:0;">
+                                                        <h6 class="display-1"
+                                                            style="position: absolute; right:0; top:0;">
+                                                            {{arg.name}}[{% for index in read.indexes %}
+                                                            {%-if index.type == "induction_var" -%}
+                                                            {{index.stencil}}
+                                                            {%- if index.offset != 0 -%}
+                                                            {{' +' if index.offset> 0 else '' }}
+                                                            {{index.offset-}}
+                                                            {%- endif-%}
+                                                            {%-elif index.type == "global_memref" -%}
+                                                            {{index.name}}
+                                                            {%-elif index.type == "global_constant" -%}
+                                                            {{index.value}}
+                                                            {%-endif -%}
+                                                            {%-if not loop.last-%},{{' '}}{%-endif-%}
+
+                                                            {%-endfor -%}]
+                                                        </h6>
+                                                    </div>
+                                                </div>
+
+
+                                                {%-endfor-%} <!-- read -->
+                                                {%-endfor-%} <!-- arg -->
+                                            </div>
+                                            <button class="carousel-control-prev" type="button"
+                                                data-bs-target="#{{carousel_key}}" data-bs-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Previous</span>
+                                            </button>
+                                            <button class="carousel-control-next" type="button"
+                                                data-bs-target="#{{carousel_key}}" data-bs-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="visually-hidden">Next</span>
+                                            </button>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                                {% endfor %} <!-- end loop -->
+
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                {% endfor %} <!-- end function -->
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+
+
+{% endblock %}
+
+{% block js %}
+<!-- <script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script> -->
+
+<script>
+    //const carousel = new bootstrap.Carousel('#myCarousel')
+    $(document).ready(function () {
+        $('.carousel-inner').each(function () {
+            $(this).find('.carousel-item:first').addClass('active');
+        });
+    });
+</script>
+{% endblock %}

@@ -13,6 +13,10 @@
 #include "llvm/Support/InitLLVM.h"
 #include "llvm/Support/SourceMgr.h"
 #include "llvm/Support/ToolOutputFile.h"
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
 
 namespace cl = llvm::cl;
 
@@ -36,4 +40,13 @@ int parseMlir(mlir::MLIRContext &context,
     return 3;
   }
   return 0;
+}
+
+void readSourceFile(llvm::StringRef filename, std::vector<std::string> &lines) {
+  std::ifstream file(filename.str());
+
+  std::string line;
+  while (std::getline(file, line)) {
+    lines.push_back(line);
+  }
 }
