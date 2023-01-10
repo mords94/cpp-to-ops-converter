@@ -636,6 +636,9 @@ int main(int argc, char **argv) {
     return -1;
   }
 
+  /**
+   * Pass for remove all functions except the one we are interested in
+   */
   module->walk([&](mlir::func::FuncOp f) {
     if (!f.getName().contains(functionName.getValue())) {
       f.erase();
@@ -650,6 +653,10 @@ int main(int argc, char **argv) {
   llvm::json::Array loops;
 
   int loopIndex = 0;
+
+  /**
+   * Pass for annotating loops with index and LB and UB
+   */
   funcOp.walk([&](mlir::Operation *op) {
     // if operation is not a loop, skip
     if (!isLoop(op)) {
@@ -663,97 +670,11 @@ int main(int argc, char **argv) {
     return setLoopDepthAndBoundsAttributes(op, 1);
   });
 
-#pragma region for convert
-  // remove all global reads that are passed through as an argument to a loop
-  // funcOp.walk([&](mlir::scf::WhileOp whileOp) {
-  //   auto conditionOp = whileOp.getConditionOp();
-
-  //   auto builder =
-  //   mlir::OpBuilder::atBlockBegin(&whileOp.getAfter().front()); auto
-  //   funcBuilder = mlir::OpBuilder::atBlockBegin(&funcOp.getBody().front());
-  //   auto parentBuilder = mlir::OpBuilder::atBlockBegin(
-  //       &whileOp->getParentRegion()->getBlocks().front());
-
-  //   mlir::ConversionPatternRewriter rewriter(&context);
-
-  //   for (auto en : llvm::enumerate(conditionOp.getOperands())) {
-  //     auto operand = en.value();
-
-  //     // assuming that the while condition contains an operand that is
-  //     produced
-  //     // by a load operation and this load operation loads a scalar value
-  //     from a
-  //     // global memref
-  //     if (!operand.isa<mlir::BlockArgument>() &&
-  //         !isa<mlir::arith::CmpIOp>(operand.getDefiningOp())) {
-  //       llvm::errs() << "While operand: " << operand << "\n";
-  //       llvm::errs() << "While operand index: " << en.index() << "\n";
-  //       llvm::errs() << "Condition: " << conditionOp << "\n";
-
-  //       auto oldMemref =
-  //       cast<mlir::memref::LoadOp>(operand.getDefiningOp());
-
-  //       auto constantZero =
-  //       funcBuilder.create<mlir::arith::ConstantIndexOp>(
-  //           whileOp.getLoc(), 0);
-
-  //       constantZero.dump();
-
-  //       SmallVector<mlir::Value, 1> index = {constantZero.getResult()};
-  //       auto newLoadOp = builder.create<mlir::memref::LoadOp>(
-  //           whileOp.getLoc(), oldMemref.getMemref(), index);
-  //       newLoadOp.dump();
-
-  //       newLoadOp->setAttr(std::string("name"),
-  //                          builder.getStringAttr(std::string("new op")));
-
-  //       newLoadOp.dump();
-
-  //       auto argIndex = en.index() - 1; // -1 because of the condition cmp
-  //       op whileOp.getAfter().getArgument(argIndex).replaceAllUsesWith(
-  //           newLoadOp.getResult());
-
-  //       llvm::errs() << "Erasing operand " << en.index() << "\n";
-  //       conditionOp.getOperation()->eraseOperand(en.index());
-
-  //       llvm::errs() << "Erasing argument " << en.index() << "\n";
-  //       whileOp.getAfter().eraseArgument(argIndex);
-
-  //       for (auto a : whileOp->getResultTypes()) {
-  //         llvm::errs() << "Erasing result type " << a << "\n";
-  //       }
-  //       // static void build(::mlir::OpBuilder &, ::mlir::OperationState
-  //       // &odsState, ::mlir::TypeRange resultTypes, ::mlir::ValueRange
-  //       // operands, ::llvm::ArrayRef<::mlir::NamedAttribute> attributes =
-  //       {});
-
-  //       SmallVector<mlir::Type, 1> resultTypes = {mlir::IntegerType::get(
-  //           &context, 32, mlir::IntegerType::SignednessSemantics::Signed)};
-
-  //       auto newWhileOp = parentBuilder.create<mlir::scf::WhileOp>(
-  //           whileOp.getLoc(), resultTypes, whileOp.getInits());
-
-  //       // auto funcType = FunctionType::get(
-  //       //     funcOp.getContext(), result.getConvertedTypes(),
-  //       funcResult);
-
-  //       // auto newFuncOp = rewriter.create<FuncOp>(loc, funcOp.getName(),
-  //       //                                          funcType, llvm::None);
-
-  //       rewriter.inlineRegionBefore(whileOp.getBefore(),
-  //                                   &newWhileOp.getBefore().front());
-  //       rewriter.inlineRegionBefore(whileOp.getAfter(),
-  //                                   &newWhileOp.getAfter().front());
-
-  //       // newFuncOp.end());
-
-  //       funcOp.dump();
-  //     }
-  //   }
-  // });
-
-#pragma endregion
-
+  /**
+   * Pass for swapping bounds of adds where the operands are an
+   * induction variable and a constant to ensure that the right child is the
+   * constant
+   */
   funcOp.walk([&](mlir::Operation *op) {
     // if operation is not an add operation, skip
     if (!isa<mlir::arith::AddIOp>(op)) {
@@ -789,6 +710,11 @@ int main(int argc, char **argv) {
     addOp.erase();
   });
 
+  /**
+   * Pass for swapping bounds of multiplications where the operands are an
+   * induction variable and a constant to ensure that the right child is the
+   * constant
+   */
   funcOp.walk([&](mlir::Operation *op) {
     // if operation is not an muli operation, skip
     if (!isa<mlir::arith::MulIOp>(op)) {
@@ -814,6 +740,9 @@ int main(int argc, char **argv) {
     mulOp.erase();
   });
 
+  /**
+   * Main pass for collecting metadata about loops
+   */
   funcOp.walk([&](mlir::Operation *op) {
     // if operation is not a loop, skip
     if (!isLoop(op)) {
