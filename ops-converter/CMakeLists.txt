@@ -15,7 +15,6 @@ set(LIBS
         MLIRArithDialect
         MLIRMemRefDialect
         MLIROptLib
-        MLIRStandalone
         )
 
 add_llvm_executable(ops-converter 

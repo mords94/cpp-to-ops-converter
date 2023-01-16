@@ -18,7 +18,6 @@ KERNELS=(
     "ext_flux_update_"
     "ext_init_horizontal_velocities_"
     "ext_init_internal_"
-
     "ext_uaf_"
     "ext_vaf_"
     "ext_vertvl_"

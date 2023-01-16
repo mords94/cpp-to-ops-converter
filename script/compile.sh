@@ -4,7 +4,7 @@ scriptDir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
 
 WORKPATH=$scriptDir/../
 CGEIST=$WORKPATH/Polygeist/build/bin
-MLIR=$WORKPATH/llvm-project/llvm/build-release/bin
+MLIR=$WORKPATH/Polygeist/build/bin
 
 echo $1
 
