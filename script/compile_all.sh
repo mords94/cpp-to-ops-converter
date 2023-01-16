@@ -40,5 +40,5 @@ KERNELS=(
 )
 
 for kernel in "${KERNELS[@]}"; do
-    $WORKPATH/script/compile.sh $kernel --opconv-debug
+    $WORKPATH/script/compile.sh $kernel
 done

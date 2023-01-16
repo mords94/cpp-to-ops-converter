@@ -54,6 +54,9 @@ static cl::opt<std::string> functionName("function", cl::desc("Function name"),
 static cl::opt<bool> enableDebug("opconv-debug", cl::desc("Enable debug"),
                                  cl::init(false));
 
+static cl::opt<bool> emitMLIR("opconv-emit-mlir", cl::desc("Emit MLIR"),
+                              cl::init(false));
+
 // container for the source code
 std::vector<std::string> sourceLines;
 
@@ -326,18 +329,37 @@ getFuncArgumentsUsedInLoop(mlir::Operation *loop) {
   return argumentMap;
 }
 
+mlir::Operation *getParentLoopOperation(mlir::Operation *op) {
+  mlir::Operation *parent = op->getParentOp();
+
+  while (parent != nullptr) {
+    if (isLoop(parent)) {
+      return parent;
+    }
+
+    parent = parent->getParentOp();
+  }
+
+  return nullptr;
+}
+
+void dummy() { mlir::Value a = nullptr; }
+
 template <typename T>
 llvm::SmallVector<T> filterStoreUses(llvm::SmallVector<T> &argStoreUses,
                                      int loopIndex) {
   llvm::SmallVector<T> filteredStoreUses;
-
+  llvm::errs()
+      << "       [filterStoreUses] Filtering store uses for loop index "
+      << loopIndex << "\n";
   for (auto use : argStoreUses) {
-    auto parent = use->getParentOp();
-    if (!isa<mlir::scf::WhileOp>(parent) && !isa<mlir::scf::ForOp>(parent)) {
+    auto parentLoop = getParentLoopOperation(use);
+
+    if (parentLoop == nullptr) {
       continue;
     }
 
-    if (parent->template getAttrOfType<mlir::IntegerAttr>("loop_index")
+    if (parentLoop->template getAttrOfType<mlir::IntegerAttr>("loop_index")
             .getInt() == loopIndex) {
       filteredStoreUses.push_back(use);
     }
@@ -352,16 +374,16 @@ void setReadOrStoreValues(mlir::BlockArgument arg,
                           llvm::StringRef key) {
 
   if (has_use<T>(arg)) {
-    llvm::errs() << "   [setReadOrStoreValues] Found use of argument (" << key
+    llvm::errs() << "     [setReadOrStoreValues] Found use of argument (" << key
                  << ")\n";
     llvm::SmallVector<T> argStoreUses = get_use<T>(arg);
 
-    llvm::errs() << "   [setReadOrStoreValues] Found " << argStoreUses.size()
+    llvm::errs() << "     [setReadOrStoreValues] Found " << argStoreUses.size()
                  << " uses of argument (" << key << ")\n";
 
     argStoreUses = filterStoreUses<T>(argStoreUses, loopIndex);
 
-    llvm::errs() << "   [setReadOrStoreValues] Found " << argStoreUses.size()
+    llvm::errs() << "     [setReadOrStoreValues] Found " << argStoreUses.size()
                  << " uses of argument (" << key << ") on loop level "
                  << loopIndex << "\n";
 
@@ -369,14 +391,14 @@ void setReadOrStoreValues(mlir::BlockArgument arg,
     // one index
     llvm::json::Array arrOfUseIndices;
     jsonContainer[key.str() + std::string("_count")] =
-        llvm::json::Value(Twine(argStoreUses.size()).str());
+        llvm::json::Value((int64_t)argStoreUses.size());
 
     for (auto use : llvm::enumerate(argStoreUses)) {
       llvm::json::Object useDescription;
 
       auto index = use.value().getIndices()[0];
 
-      llvm::errs() << "   [setReadOrStoreValues] Building expression tree\n";
+      llvm::errs() << "     [setReadOrStoreValues] Building expression tree\n";
       Node *tree = new Node();
 
       auto isIndexOp = index.getDefiningOp() != nullptr &&
@@ -386,7 +408,7 @@ void setReadOrStoreValues(mlir::BlockArgument arg,
                 0);
 
       llvm::errs()
-          << "   [setReadOrStoreValues] End of Building expression tree\n";
+          << "      [setReadOrStoreValues] End of Building expression tree\n";
 
       if (enableDebug) {
         tree->dump();
@@ -404,9 +426,9 @@ void setReadOrStoreValues(mlir::BlockArgument arg,
     }
     jsonContainer[(key.str() + std::string("_offsets"))] =
         llvm::json::Value(std::move(arrOfUseIndices));
-    jsonContainer[key] = llvm::json::Value(argStoreUses.length() > 0);
+    jsonContainer[key] = llvm::json::Value(argStoreUses.size() > 0);
   } else {
-    llvm::errs() << "   [setReadOrStoreValues] No use of argument " << key
+    llvm::errs() << "     [setReadOrStoreValues] No use of argument " << key
                  << "\n";
     jsonContainer[key] = llvm::json::Value(false);
   }
@@ -435,7 +457,7 @@ std::string getArgNameFromFuncLocation(mlir::BlockArgument arg) {
       continue;
     }
     if (line[i] == '[' || line[i] == '=' || line[i] == ';' || line[i] == ',' ||
-        line[i] == ')') {
+        line[i] == ')' || line[i] == '!') {
       break;
     }
     os << line[i];
@@ -573,20 +595,34 @@ llvm::json::Value attributeToJson(mlir::Attribute attribute) {
         jsonValue = llvm::json::Value(attr.getValue());
       })
       .Default([&](mlir::Attribute attr) {
-
+        llvm::errs() << "Unknown attribute type: " << attr << "\n";
       });
 
   return jsonValue;
 }
 
+std::string printOpAttributes(mlir::Operation *op) {
+  std::string result = "";
+  llvm::raw_string_ostream stream(result);
+  op->getAttrDictionary().print(stream);
+
+  return stream.str();
+}
+
 void collectLoopInfo(mlir::Operation *loop, llvm::json::Array &bounds,
                      llvm::json::Array &loopAttrs) {
+  llvm::errs() << "    [collectLoopBounds] Attributes"
+               << printOpAttributes(loop) << "\n";
   llvm::errs() << "   [collectLoopBounds] Collecting loop bounds lb\n";
 
-  bounds.insert(bounds.end(), attributeToJson(loop->getAttr("lb")));
+  auto lb = loop->getAttr("lb");
+
+  bounds.insert(bounds.end(), attributeToJson(lb));
   llvm::errs() << "   [collectLoopBounds] Collecting loop bounds ub\n";
 
-  bounds.insert(bounds.end(), attributeToJson(loop->getAttr("ub")));
+  auto ub = loop->getAttr("ub");
+
+  bounds.insert(bounds.end(), attributeToJson(ub));
   llvm::errs()
       << "   [collectLoopBounds] Collecting loop bounds induction_variable\n";
 
@@ -739,6 +775,12 @@ int main(int argc, char **argv) {
 
     mulOp.erase();
   });
+
+  if (emitMLIR) {
+    module->print(llvm::outs());
+
+    return 0;
+  }
 
   /**
    * Main pass for collecting metadata about loops
