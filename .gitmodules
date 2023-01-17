@@ -1,4 +1,4 @@
 [submodule "ITK_POM2K"]
-	path = ITK_POM2K
-	url = git@dev.itk.ppke.hu:pom/ITK_POM2K.git
-	branch = ops-converter
+path = ITK_POM2K
+url = git@dev.itk.ppke.hu:pom/ITK_POM2K.git
+branch = ops
