@@ -2,15 +2,15 @@
 
 ## Building
 ```sh
-mkdir build && cd build
-
-PREFIX=../llvm-project/build
-BUILD_DIR=../llvm-project/build/bin
+./build.sh
 ```
 
-This setup assumes that you have built LLVM and MLIR in `$BUILD_DIR` and installed them to `$PREFIX`. To build and launch the tests, run
+## Compile a kernel
 ```sh
-cmake -G Ninja .. -DMLIR_DIR=$PREFIX/lib/cmake/mlir -DLLVM_EXTERNAL_LIT=$BUILD_DIR/llvm-lit
-ninja
+./scripts/compile.sh kernel_name
 ```
 
+## Compile a kernel with debug images
+```sh
+./scripts/compile.sh kernel_name --opconv-debug
+```
