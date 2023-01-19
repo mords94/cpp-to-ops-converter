@@ -1,6 +1,8 @@
 #!/bin/bash
 
-WORKPATH=/Users/mac/Projects/mlir/cpp-to-ops-converter
+scriptDir=$(dirname -- "$(readlink -f -- "$BASH_SOURCE")")
+WORKPATH=$scriptDir/../
+
 KERNELS=(
     ### KERNELS
     "ext_adjust_u_v_"
@@ -21,6 +23,17 @@ KERNELS=(
     "ext_uaf_"
     "ext_vaf_"
     "ext_vertvl_"
+
+    "ext_advv_"
+    "ext_advu_"
+    "ext_updeta_t_s_"
+    "ext_update_u_v_"
+    "ext_vert_avgs_"
+    "ext_add_ad_2d_"
+    "ext_time_internal_forward_"
+    "ext_advct_"
+    "ext_update_turbulane_"
+    #"ext_aam" #  not in use.
 
     ### IO
     # "ext_load_state_for_restart_" # load
