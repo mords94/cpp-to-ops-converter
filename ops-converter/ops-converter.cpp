@@ -22,6 +22,7 @@
 #include "mlir/Pass/PassManager.h"
 #include "mlir/Support/FileUtilities.h"
 #include "mlir/Tools/mlir-opt/MlirOptMain.h"
+#include "mlir/Transforms/GreedyPatternRewriteDriver.h"
 #include "llvm/ADT/Twine.h"
 #include "llvm/ADT/TypeSwitch.h"
 #include "llvm/Support/CommandLine.h"
@@ -53,6 +54,15 @@ static cl::opt<std::string> functionName("function", cl::desc("Function name"),
 
 static cl::opt<bool> enableDebug("opconv-debug", cl::desc("Enable debug"),
                                  cl::init(false));
+
+static cl::opt<bool> enableDebugModule("opconv-debug-module",
+                                       cl::desc("Print module after labelings"),
+                                       cl::init(false));
+
+static cl::opt<bool>
+    enableDetailedPrint("opconv-detailed",
+                        cl::desc("Add loop and call orders for dag"),
+                        cl::init(false));
 
 static cl::opt<bool> emitMLIR("opconv-emit-mlir", cl::desc("Emit MLIR"),
                               cl::init(false));
@@ -125,7 +135,13 @@ std::string getInductionVariableFromStatement(std::string forStmt) {
 
   auto condition = forStmtParts[1];
 
-  std::string inductionVariable = condition.substr(0, condition.find("<"));
+  std::string inductionVariable = "";
+  if (condition.find(">") != std::string::npos) {
+    inductionVariable = condition.substr(0, condition.find(">"));
+  } else if (condition.find("<") != std::string::npos) {
+    inductionVariable = condition.substr(0, condition.find("<"));
+  }
+
   inductionVariable.erase(std::remove_if(inductionVariable.begin(),
                                          inductionVariable.end(), isspace),
                           inductionVariable.end());
@@ -137,6 +153,7 @@ std::string getInductionVariableFromLoop(mlir::Operation *op) {
   auto loc = op->getLoc().dyn_cast<mlir::FileLineColLoc>();
   auto count = loc.getLine() - 1;
   std::string stmt = sourceLines[count];
+
   return getInductionVariableFromStatement(stmt);
 }
 
@@ -165,6 +182,25 @@ llvm::json::Object getLoopAttrObject(mlir::Location loc) {
         llvm::json::Value(sourceLines[fileLineColLoc.getLine() - 1]);
     attr["induction_var"] = llvm::json::Value(getInductionVariableFromStatement(
         sourceLines[fileLineColLoc.getLine() - 1]));
+
+    attr["location"] = llvm::json::Value(std::move(location));
+  }
+
+  return attr;
+}
+
+llvm::json::Object getArgLocation(mlir::Location loc) {
+  llvm::json::Object attr;
+  if (auto fileLineColLoc = loc.dyn_cast<mlir::FileLineColLoc>()) {
+    llvm::json::Object location;
+    std::string fileName =
+        getStrippedFileNameFromFileLineColLoc(fileLineColLoc);
+
+    location["file"] = llvm::json::Value(fileName);
+    location["line"] = llvm::json::Value(fileLineColLoc.getLine());
+    location["col"] = llvm::json::Value(fileLineColLoc.getColumn());
+    location["associated_line"] =
+        llvm::json::Value(sourceLines[fileLineColLoc.getLine() - 1]);
 
     attr["location"] = llvm::json::Value(std::move(location));
   }
@@ -201,12 +237,12 @@ void buildTree(Node &node, mlir::Value value, int depth = 0) {
     } else if (auto indexCastOp = dyn_cast<mlir::arith::IndexCastOp>(op)) {
       llvm::errs() << "   [buildTree] Index cast operation \n";
 
-      Node *children[1] = {new Node()};
+      // Node *children[1] = {new Node()};
 
-      node.setLeft(children[0]);
-      node.setValue(indexCastOp.getIn());
+      // node.setLeft(children[0]);
+      // node.setValue(indexCastOp.getIn());
 
-      buildTree(*children[0], indexCastOp.getIn(), depth + 1);
+      buildTree(node, indexCastOp.getIn(), depth);
 
     } else if (op->getOperands().size() == 2) {
       llvm::errs() << "   [buildTree] Binary operation \n";
@@ -434,6 +470,13 @@ void setReadOrStoreValues(mlir::BlockArgument arg,
   }
 }
 
+/*
+2nd FIXME: Is this comment written by me? If so, I should rewrite it.
+TODO: This is a hacky way to get the name of the argument. We should
+      find a better way to do this.
+      For example, we can use the name of the function argument but we need to
+      merge the rows of the function argument declarations.
+*/
 std::string getArgNameFromFuncLocation(mlir::BlockArgument arg) {
 
   std::string result = "";
@@ -445,7 +488,16 @@ std::string getArgNameFromFuncLocation(mlir::BlockArgument arg) {
 
   auto nextChar = line[fileLineCol.getColumn() - 1];
 
-  auto initialColumn = nextChar == '=' ? 0 : fileLineCol.getColumn() - 1;
+  auto plusEqual = line[fileLineCol.getColumn() - 1] == '+' &&
+                   line[fileLineCol.getColumn()] == '=';
+
+  auto minusEqual = line[fileLineCol.getColumn() - 1] == '-' &&
+                    line[fileLineCol.getColumn()] == '=';
+
+  auto equal = line[fileLineCol.getColumn() - 1] == '=';
+
+  auto initialColumn =
+      plusEqual || minusEqual || equal ? 0 : fileLineCol.getColumn() - 1;
 
   bool hit = false;
   for (int i = initialColumn; i < line.size(); i++) {
@@ -457,7 +509,7 @@ std::string getArgNameFromFuncLocation(mlir::BlockArgument arg) {
       continue;
     }
     if (line[i] == '[' || line[i] == '=' || line[i] == ';' || line[i] == ',' ||
-        line[i] == ')' || line[i] == '!') {
+        line[i] == ')' || line[i] == '!' || line[i] == '<' || line[i] == '>') {
       break;
     }
     os << line[i];
@@ -486,6 +538,8 @@ llvm::json::Object getArgumentMetadata(mlir::BlockArgument arg, int argIndex,
   argObject["arg_index"] = llvm::json::Value(argIndex);
 
   argObject["name"] = llvm::json::Value(argName);
+  argObject["meta"] = llvm::json::Value(
+      getArgLocation(arg.getUses().begin().getUser()->getLoc()));
 
   llvm::errs() << "   [getArgumentMetadata] " << argObject["name"]
                << " write\n";
@@ -498,83 +552,217 @@ llvm::json::Object getArgumentMetadata(mlir::BlockArgument arg, int argIndex,
   return argObject;
 }
 
+// TODO: Consider rewrite this completely:
+// Since we have the debug information and it is already parsed to obtain the
+// inductuion variable we can use it to get the loop bounds also.
 mlir::WalkResult setLoopDepthAndBoundsAttributes(mlir::Operation *op,
                                                  uint64_t depth) {
+
+  // assert is loopp
+  if (!isLoop(op)) {
+    llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+                 << "ERRO! Operation is not a loop\n";
+    return mlir::WalkResult::interrupt();
+  }
+
+  // if has depth attribute, it means that it was already visited
+
+  auto inductionVariable = getInductionVariableFromLoop(op);
 
   op->setAttr("depth", mlir::IntegerAttr::get(
                            mlir::IntegerType::get(op->getContext(), 8), depth));
 
-  auto inductionVariable = getInductionVariableFromLoop(op);
-
   op->setAttr("induction_variable",
               mlir::StringAttr::get(op->getContext(), inductionVariable));
 
-  op->dump();
+  mlir::Value lbValue;
+  mlir::Value ubValue;
+  mlir::Region *loopBodyRegion;
+
+  bool increment;
+
+  auto loop = op;
 
   if (isWhileLoop(op)) {
-    auto loop = cast<mlir::scf::WhileOp>(op);
-    auto initialValue = loop.getInits()[0];
+    auto whileLoop = cast<mlir::scf::WhileOp>(op);
+    lbValue = whileLoop.getInits()[0];
+    loopBodyRegion = &whileLoop.getAfter();
 
-    if (auto constantIntOp =
-            dyn_cast<mlir::arith::ConstantOp>(initialValue.getDefiningOp())) {
-      loop->setAttr("lb", constantIntOp.getValueAttr());
-    }
+    ubValue = cast<mlir::arith::CmpIOp>(
+                  whileLoop.getConditionOp().getOperand(0).getDefiningOp())
+                  ->getOperand(1);
 
-    auto ubValue = cast<mlir::arith::CmpIOp>(
-                       loop.getConditionOp().getOperand(0).getDefiningOp())
-                       ->getOperand(1)
-                       .getDefiningOp()
-                       ->getOperand(0);
+    llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+                 << "condition: " << whileLoop.getConditionOp().getOperand(0)
+                 << "\n";
 
-    if (auto ubGlobal =
-            dyn_cast<mlir::memref::GetGlobalOp>(ubValue.getDefiningOp())) {
-
-      loop->setAttr("ub", ubGlobal.getNameAttr());
-    }
-
-    loop.getAfter().walk([&](mlir::Operation *inner) {
-      if (!isLoop(inner)) {
-        return mlir::WalkResult::skip();
+    // if condition compare is sgt
+    if (auto cmp = dyn_cast<mlir::arith::CmpIOp>(
+            whileLoop.getConditionOp().getOperand(0).getDefiningOp())) {
+      if (cmp.getPredicate() == mlir::arith::CmpIPredicate::sgt) {
+        increment = false;
+      } else {
+        increment = true;
       }
-
-      return setLoopDepthAndBoundsAttributes(inner, depth + 1);
-    });
+    }
   }
 
   if (isForLoop(op)) {
-    auto loop = cast<mlir::scf::ForOp>(op);
+    auto forLoop = cast<mlir::scf::ForOp>(op);
+    lbValue = forLoop.getLowerBound();
+    ubValue = forLoop.getUpperBound();
+    loopBodyRegion = &forLoop.getLoopBody();
+    increment = true;
+  }
 
-    if (auto constantOp = dyn_cast<mlir::arith::ConstantOp>(
-            loop.getLowerBound().getDefiningOp())) {
-      loop->setAttr("lb", constantOp.getValueAttr());
+  loop->setAttr("step", mlir::IntegerAttr::get(
+                            mlir::IntegerType::get(op->getContext(), 8),
+                            increment ? 1 : -1));
+
+  // llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+  //              << "lbValue: " << lbValue << "\n";
+  // llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+  //              << "ubValue: " << ubValue << "\n";
+
+  // llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+  //              << "loopBodyRegion: " << loopBodyRegion << "\n";
+
+  // // lb def op
+  // llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+  //              << "lbValue def op: " << lbValue.getDefiningOp()->getName()
+  //              << "\n";
+
+  // // ub def op
+  // llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+  //              << "ubValue def op: " << ubValue.getDefiningOp()->getName()
+  //              << "\n";
+
+  llvm::TypeSwitch<mlir::Operation *>(lbValue.getDefiningOp())
+      .Case([&](mlir::arith::ConstantOp constantOp) {
+        loop->setAttr("lb", constantOp.getValueAttr());
+      })
+      .Case([&](mlir::arith::IndexCastOp indexCastOp) {
+        auto lbValueOperand =
+            indexCastOp.getIn().getDefiningOp()->getOperand(0);
+
+        llvm::TypeSwitch<mlir::Operation *>(lbValueOperand.getDefiningOp())
+            .Case([&](mlir::memref::GetGlobalOp lbGlobal) {
+              loop->setAttr("lb", lbGlobal.getNameAttr());
+            })
+            // memref load
+            .Case([&](mlir::memref::LoadOp lbLoad) {
+              auto lbValue = lbLoad.getMemRef().getDefiningOp();
+
+              llvm::TypeSwitch<mlir::Operation *>(lbValue)
+                  .Case([&](mlir::memref::GetGlobalOp lbGlobal) {
+                    loop->setAttr("lb", lbGlobal.getNameAttr());
+                  })
+                  .Case([&](mlir::arith::ConstantOp constantOp) {
+                    loop->setAttr("lb", constantOp.getValueAttr());
+                  })
+                  .Default([&](mlir::Operation *op) {
+                    llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+                                 << "For loop has non-constant lower bound\n";
+                    return mlir::WalkResult::interrupt();
+                  });
+            })
+            .Default([&](mlir::Operation *op) {
+              llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+                           << "For loop has non-constant lower bound\n";
+              return mlir::WalkResult::interrupt();
+            });
+      })
+      .Case([&](mlir::memref::LoadOp lbLoad) {
+        auto lbValue = lbLoad.getMemRef().getDefiningOp();
+
+        llvm::TypeSwitch<mlir::Operation *>(lbValue)
+            .Case([&](mlir::memref::GetGlobalOp lbGlobal) {
+              loop->setAttr("lb", lbGlobal.getNameAttr());
+            })
+            .Case([&](mlir::arith::ConstantOp constantOp) {
+              loop->setAttr("lb", constantOp.getValueAttr());
+            })
+            .Default([&](mlir::Operation *op) {
+              llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+                           << "For loop has non-constant lower bound\n";
+              return mlir::WalkResult::interrupt();
+            });
+      })
+      .Default([&](mlir::Operation *op) {
+        llvm::errs() << "      [setLoopDepthAndBoundsAttributes] "
+                     << "For loop has non-constant lower bound\n";
+
+        auto lbValueAsString =
+            lbValue.getDefiningOp()->getName().getStringRef();
+
+        loop->setAttr("lb",
+                      mlir::StringAttr::get(op->getContext(), lbValueAsString));
+        return mlir::WalkResult::interrupt();
+      });
+
+  llvm::TypeSwitch<mlir::Operation *>(ubValue.getDefiningOp())
+      .Case([&](mlir::arith::ConstantOp constantOp) {
+        loop->setAttr("ub", constantOp.getValueAttr());
+      })
+      .Case([&](mlir::arith::IndexCastOp indexCastOp) {
+        auto ubValueOperand =
+            indexCastOp.getIn().getDefiningOp()->getOperand(0);
+
+        llvm::TypeSwitch<mlir::Operation *>(ubValueOperand.getDefiningOp())
+            .Case([&](mlir::memref::GetGlobalOp ubGlobal) {
+              loop->setAttr("ub", ubGlobal.getNameAttr());
+            })
+            // memref load
+            .Case([&](mlir::memref::LoadOp ubLoad) {
+              auto ubValue = ubLoad.getMemRef().getDefiningOp();
+
+              llvm::TypeSwitch<mlir::Operation *>(ubValue)
+                  .Case([&](mlir::memref::GetGlobalOp ubGlobal) {
+                    loop->setAttr("ub", ubGlobal.getNameAttr());
+                  })
+                  .Default([&](mlir::Operation *op) {
+                    loop->setAttr("ub", mlir::StringAttr::get(
+                                            loop->getContext(),
+                                            op->getName().getStringRef()));
+                  });
+            })
+            .Default([&](mlir::Operation *op) {
+              loop->setAttr(
+                  "ub", mlir::StringAttr::get(loop->getContext(),
+                                              op->getName().getStringRef()));
+            });
+      })
+
+      // get global
+      .Case([&](mlir::memref::GetGlobalOp ubGlobal) {
+        loop->setAttr("ub", ubGlobal.getNameAttr());
+      })
+      .Case([&](mlir::memref::LoadOp ubLoad) {
+        auto ubValue = ubLoad.getMemRef().getDefiningOp();
+
+        llvm::TypeSwitch<mlir::Operation *>(ubValue)
+            .Case([&](mlir::memref::GetGlobalOp ubGlobal) {
+              loop->setAttr("ub", ubGlobal.getNameAttr());
+            })
+            .Default([&](mlir::Operation *op) {
+              loop->setAttr(
+                  "ub", mlir::StringAttr::get(loop->getContext(),
+                                              op->getName().getStringRef()));
+            });
+      })
+      .Default([&](mlir::Operation *attr) {
+        llvm::errs() << "Unknown attribute UB type: " << attr << "\n";
+
+        loop->setAttr("ub", mlir::StringAttr::get(op->getContext(), "unknown"));
+      });
+
+  loopBodyRegion->walk([&](mlir::Operation *inner) {
+    if (!isLoop(inner)) {
+      return mlir::WalkResult::skip();
     }
 
-    // Consider this for lb and while too
-    llvm::TypeSwitch<mlir::Operation *>(loop.getUpperBound().getDefiningOp())
-        .Case([&](mlir::arith::ConstantOp constantOp) {
-          loop->setAttr("ub", constantOp.getValueAttr());
-        })
-        .Case([&](mlir::arith::IndexCastOp indexCastOp) {
-          auto ubValue = indexCastOp.getIn().getDefiningOp()->getOperand(0);
-
-          if (auto ubGlobal = dyn_cast<mlir::memref::GetGlobalOp>(
-                  ubValue.getDefiningOp())) {
-
-            loop->setAttr("ub", ubGlobal.getNameAttr());
-          }
-        })
-        .Default([&](mlir::Operation *attr) {
-          // llvm::errs() << "Unknown attribute type: " << attr << "\n";
-        });
-
-    loop.getBodyRegion().walk([&](mlir::Operation *inner) {
-      if (!isLoop(inner)) {
-        return mlir::WalkResult::skip();
-      }
-
-      return setLoopDepthAndBoundsAttributes(inner, depth + 1);
-    });
-  }
+    return setLoopDepthAndBoundsAttributes(inner, depth + 1);
+  });
 
   return mlir::WalkResult::advance();
 }
@@ -610,7 +798,7 @@ std::string printOpAttributes(mlir::Operation *op) {
 }
 
 void collectLoopInfo(mlir::Operation *loop, llvm::json::Array &bounds,
-                     llvm::json::Array &loopAttrs) {
+                     llvm::json::Array &loopAttrs, llvm::json::Array &steps) {
   llvm::errs() << "    [collectLoopBounds] Attributes"
                << printOpAttributes(loop) << "\n";
   llvm::errs() << "   [collectLoopBounds] Collecting loop bounds lb\n";
@@ -623,15 +811,21 @@ void collectLoopInfo(mlir::Operation *loop, llvm::json::Array &bounds,
   auto ub = loop->getAttr("ub");
 
   bounds.insert(bounds.end(), attributeToJson(ub));
+
+  llvm::errs() << "   [collectLoopBounds] Collecting step\n";
+  auto step = loop->getAttr("step");
+
+  steps.insert(steps.end(), attributeToJson(step));
+
   llvm::errs()
       << "   [collectLoopBounds] Collecting loop bounds induction_variable\n";
 
   loopAttrs.insert(loopAttrs.end(),
                    llvm::json::Value(getLoopAttrObject(loop->getLoc())));
   if (auto parentWhileOp = loop->getParentOfType<mlir::scf::WhileOp>()) {
-    collectLoopInfo(parentWhileOp, bounds, loopAttrs);
+    collectLoopInfo(parentWhileOp, bounds, loopAttrs, steps);
   } else if (auto parentForOp = loop->getParentOfType<mlir::scf::ForOp>()) {
-    collectLoopInfo(parentForOp, bounds, loopAttrs);
+    collectLoopInfo(parentForOp, bounds, loopAttrs, steps);
   }
 }
 
@@ -689,6 +883,81 @@ int main(int argc, char **argv) {
   llvm::json::Array loops;
 
   int loopIndex = 0;
+
+  // // replace while loops with for loops
+  // funcOp.walk([&](mlir::Operation *op) {
+  //   // if not while loop, skip
+  //   if (!isa<mlir::scf::WhileOp>(op)) {
+  //     return mlir::WalkResult::skip();
+  //   }
+
+  //   auto whileOp = cast<mlir::scf::WhileOp>(op);
+  //   llvm::errs() << "    [whileToFor] WhileOp: " << whileOp << "\n";
+  //   auto conditionOp = whileOp.getConditionOp();
+  //   llvm::errs() << "    [whileToFor] ConditionOp: " << conditionOp << "\n";
+
+  //   auto predicate = conditionOp.getCondition();
+
+  //   llvm::errs() << "    [whileToFor] Predicate: " << predicate << "\n";
+
+  //   auto ubValue = cast<mlir::arith::CmpIOp>(
+  //                      whileOp.getConditionOp().getOperand(0).getDefiningOp())
+  //                      ->getOperand(1)
+  //                      .getDefiningOp()
+  //                      ->getOperand(0);
+
+  //   auto lbValue = whileOp.getOperand(0);
+
+  //   llvm::errs() << "    [whileToFor] lb: " << lbValue << "\n";
+  //   llvm::errs() << "    [whileToFor] ub: " << ubValue << "\n";
+
+  //   // if lte condition
+  //   if (predicate.getDefiningOp<mlir::arith::CmpIOp>().getPredicate() ==
+  //       mlir::arith::CmpIPredicate::sge) {
+  //     // swap ubValue and lbValue
+  //     auto temp = ubValue;
+  //     ubValue = lbValue;
+  //     lbValue = temp;
+
+  //     llvm::errs() << "    [whileToFor] Swapping lb and ub\n";
+  //   }
+
+  //   auto builder = mlir::OpBuilder(op);
+
+  //   auto contantOneIndex =
+  //       builder.create<mlir::arith::ConstantIndexOp>(op->getLoc(), 1);
+  //   auto forOp = builder.create<mlir::scf::ForOp>(op->getLoc(), lbValue,
+  //                                                 ubValue, contantOneIndex);
+
+  //   // move all operations from whileOp to forOp
+  //   forOp.getBody()->getOperations().splice(
+  //       forOp.getBody()->getOperations().begin(),
+  //       whileOp.getAfter().begin()->getOperations());
+
+  //   // if forOp has terminator, remove it
+  //   if (forOp.getBody()->getTerminator()) {
+  //     forOp.getBody()->getTerminator()->erase();
+  //   }
+
+  //   // add "replaced" attribute
+  //   forOp->setAttr("replaced", mlir::UnitAttr::get(&context));
+
+  //   llvm::errs() << "    [whileToFor] ForOp: " << forOp << "\n";
+  //   // replace whileOp with forOp
+  //   // whileOp.replaceAllUsesWith(forOp);
+  //   module->dump();
+
+  //   if (whileOp->use_empty()) {
+
+  //     whileOp.erase();
+  //   }
+
+  //   return mlir::WalkResult::advance();
+  // });
+
+  // // dump module and exit
+  // module->dump();
+  // return 0;
 
   /**
    * Pass for annotating loops with index and LB and UB
@@ -813,6 +1082,8 @@ int main(int argc, char **argv) {
     llvm::errs() << "[main] Collected inner loops: " << innerLoops.size()
                  << "\n";
 
+    // 2nd FIXME: this is not  needed; we should bail earlier...
+
     // this for loop is needed to handle edge cases where there are not
     // perfectly nested loops TODO: there should not be any inperfectly nested
     // loops
@@ -855,8 +1126,10 @@ int main(int argc, char **argv) {
       llvm::errs() << "[main] Collecting loop bounds\n";
       llvm::json::Array bounds;
       llvm::json::Array loopAttrs;
-      collectLoopInfo(innerLoop, bounds, loopAttrs);
+      llvm::json::Array steps;
+      collectLoopInfo(innerLoop, bounds, loopAttrs, steps);
       loopObject["bounds"] = llvm::json::Value(std::move(bounds));
+      loopObject["steps"] = llvm::json::Value(std::move(steps));
 
       loopObject["loop_attributes"] = llvm::json::Value(std::move(loopAttrs));
 
@@ -868,6 +1141,52 @@ int main(int argc, char **argv) {
 
     return mlir::WalkResult::advance();
   });
+
+  if (enableDetailedPrint) {
+
+    llvm::json::Array loopsOrCalls;
+
+    /**
+     * Main pass for collecting metadata about calls
+     */
+    int indexM = 0;
+    for (mlir::Operation &op : funcOp.getBody().getOps()) {
+      llvm::json::Object loopOrCallObject;
+
+      if (isWhileLoop(&op)) {
+        mlir::scf::WhileOp whileOp = cast<mlir::scf::WhileOp>(op);
+        loopOrCallObject["type"] = llvm::json::Value("loop_nest");
+        loopOrCallObject["outermost_loop_index"] = llvm::json::Value(
+            whileOp->getAttrOfType<mlir::IntegerAttr>("loop_index").getInt());
+        loopsOrCalls.push_back(llvm::json::Value(std::move(loopOrCallObject)));
+      }
+
+      // if callop
+      if (isa<mlir::func::CallOp>(op)) {
+        mlir::func::CallOp callOp = cast<mlir::func::CallOp>(op);
+        llvm::errs() << "[main] Found call: " << indexM << "\n";
+        loopOrCallObject["type"] = llvm::json::Value("call");
+        loopOrCallObject["callee"] = llvm::json::Value(callOp.getCallee());
+        mlir::ValueRange args = callOp.getOperands();
+        llvm::json::Array argsArray;
+        for (auto arg : llvm::enumerate(args)) {
+          llvm::json::Object argObject;
+
+          argObject["name"] = llvm::json::Value(getArgNameFromFuncLocation(
+              arg.value().cast<mlir::BlockArgument>()));
+          argObject["index"] = llvm::json::Value(
+              arg.value().cast<mlir::BlockArgument>().getArgNumber());
+
+          argsArray.push_back(llvm::json::Value(std::move(argObject)));
+        }
+        loopOrCallObject["args"] = llvm::json::Value(std::move(argsArray));
+        loopsOrCalls.push_back(llvm::json::Value(std::move(loopOrCallObject)));
+      }
+
+      indexM++;
+    }
+    function["loops_or_calls"] = llvm::json::Value(std::move(loopsOrCalls));
+  }
 
   llvm::errs() << "[main] Saving result \n";
 

@@ -8,8 +8,11 @@ MLIR=$WORKPATH/Polygeist/build/bin
 
 echo $1
 
-$CGEIST/cgeist $WORKPATH/ITK_POM2K/pom2k_reduced.c -S --function="$1" -print-debug-info | $MLIR/mlir-opt --lower-affine --mlir-print-debuginfo >$WORKPATH/out/test_$1.mlir
-$WORKPATH/build/bin/ops-converter $WORKPATH/out/test_$1.mlir $WORKPATH/ITK_POM2K/pom2k_reduced.c --function=$1 $2 >$WORKPATH/out/test_$1.json &&
-    code $WORKPATH/out/test_$1.json
+# $CGEIST/cgeist $WORKPATH/in/test.c -S --function="$1" -print-debug-info >$WORKPATH/out/test_$1.affine.mlir
 
-# cat $WORKPATH/out/test_$1.json | ./script/merge_debugs.py
+$CGEIST/cgeist $WORKPATH/in/test.c -S --function="$1" -print-debug-info | $MLIR/mlir-opt --lower-affine --mlir-print-debuginfo >$WORKPATH/out/test_$1.mlir
+$WORKPATH/build/bin/ops-converter $WORKPATH/out/test_$1.mlir $WORKPATH/in/test.c --function=$1 $2 >$WORKPATH/out/test_$1.json
+# # code $WORKPATH/out/test_$1.json
+echo Generated TEST: $WORKPATH/out/test_$1.json
+
+cat $WORKPATH/out/test_$1.json | ./script/merge_debugs.py

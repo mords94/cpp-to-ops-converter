@@ -349,9 +349,12 @@ public:
   }
 
   std::string getInductionVarName() {
+    // assert(this->getOwnerLoop() != nullptr &&
+    //        "Node does not represent an induction variable");
 
-    assert(this->getOwnerLoop() != nullptr &&
-           "Node does not represent an induction variable");
+    if (this->getOwnerLoop() == nullptr) {
+      return "?";
+    }
 
     return this->getOwnerLoop()
         ->getAttrOfType<mlir::StringAttr>("induction_variable")
@@ -527,6 +530,8 @@ public:
     assert(node != nullptr && "Node is null");
     llvm::errs() << "Getting term or sub expr" << node->getValue() << "\n";
     if (testIfTerm(node)) {
+      llvm::errs() << "Found term: ";
+
       if (isa<mlir::BlockArgument>(node->getValue())) {
         // loop induction with offset 0, e.g.: i
 
@@ -543,10 +548,11 @@ public:
         obj["name"] = globalOp.getName();
       } else if (auto constOp = dyn_cast<mlir::arith::ConstantOp>(
                      node->getValue().getDefiningOp())) {
+        llvm::errs() << "Found global constant: " << node->getValue() << "\n";
+
         auto constValue =
             cast<mlir::IntegerAttr>(constOp.getValueAttr()).getInt();
         // global constant e.g.: 1
-        llvm::errs() << "Found global constant: " << node->getValue() << "\n";
         obj["type"] = "global_constant";
         obj["value"] = constValue;
       } else {
@@ -556,10 +562,15 @@ public:
         obj["type"] = "unknown";
       }
     } else {
+      llvm::errs() << "Not term: \n";
       if (node->getValue().isa<mlir::BlockArgument>()) {
+
         // loop induction with offset e.g: i+1
-        auto constOp =
-            dyn_cast<mlir::arith::ConstantOp>(node->getSiblingOperation());
+        auto constOp = dyn_cast_or_null<mlir::arith::ConstantOp>(
+            node->getSiblingOperation());
+
+        assert(constOp != nullptr &&
+               "Constant op is null, there is no offset constant op.");
 
         auto offset = cast<mlir::IntegerAttr>(constOp.getValueAttr()).getInt();
 
@@ -572,6 +583,18 @@ public:
 
         if (auto getGlobalOp = dyn_cast<mlir::memref::GetGlobalOp>(
                 node->getValue().getDefiningOp())) {
+
+          llvm::errs() << "Found global memref: " << node->getValue() << "\n";
+          llvm::errs() << "Sibling: " << node->getSiblingOperation()->getName()
+                       << "\n";
+
+          // if sibling is not a constant, it is a binary operation
+          obj["type"] = "global_memref";
+          obj["name"] = getGlobalOp.getName();
+          if (!isa<mlir::arith::ConstantOp>(node->getSiblingOperation())) {
+            return obj;
+          }
+
           // global memref with offset e.g.: N+1
           auto constOp =
               dyn_cast<mlir::arith::ConstantOp>(node->getSiblingOperation());
@@ -580,8 +603,7 @@ public:
               cast<mlir::IntegerAttr>(constOp.getValueAttr()).getInt();
           llvm::errs() << "Found global memref with offset: "
                        << node->getValue() << " offset: " << offset << "\n";
-          obj["type"] = "global_memref";
-          obj["name"] = getGlobalOp.getName();
+
           obj["offset"] = offset;
         } else {
           // unhandled case
