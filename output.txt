@@ -1,0 +1,260 @@
+/Users/mac/Projects/mlir/cpp-to-ops-converter/script/..//in/test.c:4:10: fatal error: 'math.h' file not found
+#include <math.h>
+         ^~~~~~~~
+      [setLoopDepthAndBoundsAttributes] condition: %9 = arith.cmpi slt, %arg44, %8 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%8 = memref.load %2[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%2 = memref.get_global @im : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] condition: %7 = arith.cmpi slt, %arg43, %6 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%6 = memref.load %1[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%1 = memref.get_global @jm : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] condition: %9 = arith.cmpi slt, %arg44, %8 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%8 = memref.load %2[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%2 = memref.get_global @im : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] condition: %5 = arith.cmpi slt, %arg42, %4 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%4 = memref.load %0[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%0 = memref.get_global @kb : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] condition: %9 = arith.cmpi slt, %arg44, %8 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%8 = memref.load %2[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%2 = memref.get_global @im : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] condition: %7 = arith.cmpi slt, %arg43, %6 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%6 = memref.load %1[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%1 = memref.get_global @jm : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] condition: %9 = arith.cmpi slt, %arg44, %8 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb attributes for op: scf.while
+Inside getBoundAttribute
+%c0_i32 = arith.constant 0 : i32
+      [setLoopDepthAndBoundsAttributes] setting ub attributes for op: scf.while
+Inside getBoundAttribute
+%8 = memref.load %2[%c0_0] : memref<1xi32>
+Inside getBoundAttribute
+%2 = memref.get_global @im : memref<1xi32>
+      [setLoopDepthAndBoundsAttributes] setting depth attribute for op: scf.while
+[main] Checking whether it is an outermost loop... 
+[main] Checking whether it is an outermost loop... 
+[main] Checking whether it is an outermost loop... 
+[main] Counting loopnest depth... 
+[main] Collecting inner loops for nest with size: 3... 
+[main] Collected inner loops: 1
+[main] Iterating loop: 0
+[main] Collecting args... 
+   [getFuncArgumentsUsedInLoop] Found load or store op 
+   [getFuncArgumentsUsedInLoop] memref.load memref 
+%1 = memref.get_global @jm : memref<1xi32>
+   [getFuncArgumentsUsedInLoop] Found load or store op 
+   [getFuncArgumentsUsedInLoop] memref.load block argument 
+   [getFuncArgumentsUsedInLoop] Found load or store op 
+   [getFuncArgumentsUsedInLoop] memref.store block argument 
+[main] Collected args: 2... 
+[main] Get argument metadata for arg: 0... 
+   [getArgumentMetadata] "sm" write
+     [setReadOrStoreValues] Found use of argument (write)
+     [setReadOrStoreValues] Found 1 uses of argument (write)
+       [filterStoreUses] Filtering store uses for loop index 0
+     [setReadOrStoreValues] Found 1 uses of argument (write) on loop level 0
+     [setReadOrStoreValues] Building expression tree
+   [buildTree] Building tree for value %15 = arith.addi %14, %c0 : index
+   [buildTree] Bulding a new node with value on level 0
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value %14 = arith.index_cast %13 : i32 to index
+   [buildTree] Bulding a new node with value on level 1
+   [buildTree] Index cast operation 
+   [buildTree] Building tree for value %13 = arith.addi %9, %12 : i32
+   [buildTree] Bulding a new node with value on level 1
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value %9 = arith.addi %arg45, %8 : i32
+   [buildTree] Bulding a new node with value on level 2
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 1
+   [buildTree] Bulding a new node with a block argument on level 3
+   [buildTree] Building tree for value %8 = arith.muli %arg43, %arg44 : i32
+   [buildTree] Bulding a new node with value on level 3
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value %12 = arith.muli %10, %11 : i32
+   [buildTree] Bulding a new node with value on level 2
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value %10 = arith.muli %arg42, %arg44 : i32
+   [buildTree] Bulding a new node with value on level 3
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value %11 = memref.load %1[%c0_0] : memref<1xi32>
+   [buildTree] Bulding a new node with value on level 3
+   [buildTree] Load operation 
+   [buildTree] Building tree for value %c0 = arith.constant 0 : index
+   [buildTree] Bulding a new node with value on level 1
+   [buildTree] Constant offset operation 
+      [setReadOrStoreValues] End of Building expression tree
+Getting all indexes
+%15 = arith.addi %14, %c0 : index   (0)
+ %13 = arith.addi %9, %12 : i32   (1)
+  %9 = arith.addi %arg45, %8 : i32   (2)
+   <block argument> of type 'i32' at index: 1 {depth = 3 : i8, induction_variable = "i", lb = 0 : i32, loop_index = 0 : i32, step = 1 : i8, ub = @im}  (3)
+   %8 = arith.muli %arg43, %arg44 : i32   (3)
+    <block argument> of type 'i32' at index: 0 {depth = 2 : i8, induction_variable = "j", lb = 0 : i32, loop_index = 1 : i32, step = 1 : i8, ub = @jm}  (4)
+    %2 = memref.get_global @im : memref<1xi32>   (4)
+  %12 = arith.muli %10, %11 : i32   (2)
+   %10 = arith.muli %arg42, %arg44 : i32   (3)
+    <block argument> of type 'i32' at index: 0 {depth = 1 : i8, induction_variable = "k", lb = 0 : i32, loop_index = 2 : i32, step = 1 : i8, ub = @kb}  (4)
+    %2 = memref.get_global @im : memref<1xi32>   (4)
+   %1 = memref.get_global @jm : memref<1xi32>   (3)
+ %c0 = arith.constant 0 : index   (1)
+Getting term or sub expr<block argument> of type 'i32' at index: 1
+Found term: Found loop induction: <block argument> of type 'i32' at index: 1
+First OK
+Getting term or sub expr<block argument> of type 'i32' at index: 0
+Found term: Found loop induction: <block argument> of type 'i32' at index: 0
+Getting term or sub expr<block argument> of type 'i32' at index: 0
+Found term: Found loop induction: <block argument> of type 'i32' at index: 0
+   [getArgumentMetadata] "sm" read
+     [setReadOrStoreValues] No use of argument read
+[main] Get argument metadata for arg: 0... 
+   [getArgumentMetadata] "sh" write
+     [setReadOrStoreValues] No use of argument write
+   [getArgumentMetadata] "sh" read
+     [setReadOrStoreValues] Found use of argument (read)
+     [setReadOrStoreValues] Found 1 uses of argument (read)
+       [filterStoreUses] Filtering store uses for loop index 0
+     [setReadOrStoreValues] Found 1 uses of argument (read) on loop level 0
+     [setReadOrStoreValues] Building expression tree
+   [buildTree] Building tree for value %15 = arith.addi %14, %c0 : index
+   [buildTree] Bulding a new node with value on level 0
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value %14 = arith.index_cast %13 : i32 to index
+   [buildTree] Bulding a new node with value on level 1
+   [buildTree] Index cast operation 
+   [buildTree] Building tree for value %13 = arith.addi %9, %12 : i32
+   [buildTree] Bulding a new node with value on level 1
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value %9 = arith.addi %arg45, %8 : i32
+   [buildTree] Bulding a new node with value on level 2
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 1
+   [buildTree] Bulding a new node with a block argument on level 3
+   [buildTree] Building tree for value %8 = arith.muli %arg43, %arg44 : i32
+   [buildTree] Bulding a new node with value on level 3
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value %12 = arith.muli %10, %11 : i32
+   [buildTree] Bulding a new node with value on level 2
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value %10 = arith.muli %arg42, %arg44 : i32
+   [buildTree] Bulding a new node with value on level 3
+   [buildTree] Binary operation 
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value <block argument> of type 'i32' at index: 0
+   [buildTree] Bulding a new node with a block argument on level 4
+   [buildTree] Building tree for value %11 = memref.load %1[%c0_0] : memref<1xi32>
+   [buildTree] Bulding a new node with value on level 3
+   [buildTree] Load operation 
+   [buildTree] Building tree for value %c0 = arith.constant 0 : index
+   [buildTree] Bulding a new node with value on level 1
+   [buildTree] Constant offset operation 
+      [setReadOrStoreValues] End of Building expression tree
+Getting all indexes
+%15 = arith.addi %14, %c0 : index   (0)
+ %13 = arith.addi %9, %12 : i32   (1)
+  %9 = arith.addi %arg45, %8 : i32   (2)
+   <block argument> of type 'i32' at index: 1 {depth = 3 : i8, induction_variable = "i", lb = 0 : i32, loop_index = 0 : i32, step = 1 : i8, ub = @im}  (3)
+   %8 = arith.muli %arg43, %arg44 : i32   (3)
+    <block argument> of type 'i32' at index: 0 {depth = 2 : i8, induction_variable = "j", lb = 0 : i32, loop_index = 1 : i32, step = 1 : i8, ub = @jm}  (4)
+    %2 = memref.get_global @im : memref<1xi32>   (4)
+  %12 = arith.muli %10, %11 : i32   (2)
+   %10 = arith.muli %arg42, %arg44 : i32   (3)
+    <block argument> of type 'i32' at index: 0 {depth = 1 : i8, induction_variable = "k", lb = 0 : i32, loop_index = 2 : i32, step = 1 : i8, ub = @kb}  (4)
+    %2 = memref.get_global @im : memref<1xi32>   (4)
+   %1 = memref.get_global @jm : memref<1xi32>   (3)
+ %c0 = arith.constant 0 : index   (1)
+Getting term or sub expr<block argument> of type 'i32' at index: 1
+Found term: Found loop induction: <block argument> of type 'i32' at index: 1
+First OK
+Getting term or sub expr<block argument> of type 'i32' at index: 0
+Found term: Found loop induction: <block argument> of type 'i32' at index: 0
+Getting term or sub expr<block argument> of type 'i32' at index: 0
+Found term: Found loop induction: <block argument> of type 'i32' at index: 0
+    [collectLocals] arg: <block argument> of type 'i32' at index: 0
+[parseDeclaration] name_out: (int
+[parseDeclaration] type: for
+[parseDeclaration] declaration:       for (int i = 0; i < im; i++) {
+[main] Collecting loop bounds
+    [collectLoopBounds] Attributes{depth = 3 : i8, induction_variable = "i", lb = 0 : i32, loop_index = 0 : i32, step = 1 : i8, ub = @im}
+   [collectLoopBounds] Collecting loop bounds lb
+   [collectLoopBounds] Collecting loop bounds ub
+   [collectLoopBounds] Collecting step
+   [collectLoopBounds] Collecting loop bounds induction_variable
+    [collectLoopBounds] Attributes{depth = 2 : i8, induction_variable = "j", lb = 0 : i32, loop_index = 1 : i32, step = 1 : i8, ub = @jm}
+   [collectLoopBounds] Collecting loop bounds lb
+   [collectLoopBounds] Collecting loop bounds ub
+   [collectLoopBounds] Collecting step
+   [collectLoopBounds] Collecting loop bounds induction_variable
+    [collectLoopBounds] Attributes{depth = 1 : i8, induction_variable = "k", lb = 0 : i32, loop_index = 2 : i32, step = 1 : i8, ub = @kb}
+   [collectLoopBounds] Collecting loop bounds lb
+   [collectLoopBounds] Collecting loop bounds ub
+   [collectLoopBounds] Collecting step
+   [collectLoopBounds] Collecting loop bounds induction_variable
+[main] Saving result 
+Traceback (most recent call last):
+  File "/Users/mac/Projects/mlir/cpp-to-ops-converter/./script/merge_debugs.py", line 50, in <module>
+    get_subgraph_for_debugs(readed_json)
+  File "/Users/mac/Projects/mlir/cpp-to-ops-converter/./script/merge_debugs.py", line 44, in get_subgraph_for_debugs
+    subgraph_dot += write_offsets['debug']
+                    ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'debug'

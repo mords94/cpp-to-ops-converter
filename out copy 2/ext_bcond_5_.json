@@ -1,0 +1,148 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        w[ACC3(i,j,k)]=w[ACC3(i,j,k)]*fsm[ACC2(i,j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1331
+            }
+          },
+          "name": "w",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "        w[ACC3(i,j,k)]=w[ACC3(i,j,k)]*fsm[ACC2(i,j)];",
+              "col": 39,
+              "file": "pom2k_fun.c",
+              "line": 1331
+            }
+          },
+          "name": "fsm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 26,
+            "file": "pom2k_fun.c",
+            "line": 1329,
+            "source": "      for (int i = 0; i< im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1328,
+            "source": "    for (int j=0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1327,
+            "source": "  for (int k = 0; k < kbm1; k++ ) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_bcond_5_"
+}

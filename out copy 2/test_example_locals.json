@@ -1,0 +1,33 @@
+{
+  "loops": [
+    {
+      "locals": [
+        {
+          "index": 0,
+          "initialValue": " 0.1f;",
+          "location": {
+            "col": 3,
+            "file": "test.c",
+            "line": 56,
+            "source": "  float local2 = 0.1f;"
+          },
+          "name": "local2",
+          "type": "float"
+        },
+        {
+          "index": 1,
+          "initialValue": " 0.0f;",
+          "location": {
+            "col": 3,
+            "file": "test.c",
+            "line": 55,
+            "source": "  float local = 0.0f;"
+          },
+          "name": "local",
+          "type": "float"
+        }
+      ]
+    }
+  ],
+  "name": "example_locals"
+}

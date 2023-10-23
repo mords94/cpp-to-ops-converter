@@ -1,0 +1,185 @@
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-meJAkt
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_622fd && [1/2] Building C object CMakeFiles/cmTC_622fd.dir/src.c.o
+FAILED: CMakeFiles/cmTC_622fd.dir/src.c.o 
+/Library/Developer/CommandLineTools/usr/bin/cc -DC_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Werror -fno-semantic-interposition -MD -MT CMakeFiles/cmTC_622fd.dir/src.c.o -MF CMakeFiles/cmTC_622fd.dir/src.c.o.d -o CMakeFiles/cmTC_622fd.dir/src.c.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-meJAkt/src.c
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-fq6xfj
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_b961b && [1/2] Building CXX object CMakeFiles/cmTC_b961b.dir/src.cxx.o
+FAILED: CMakeFiles/cmTC_b961b.dir/src.cxx.o 
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Werror -fno-semantic-interposition -std=gnu++17 -MD -MT CMakeFiles/cmTC_b961b.dir/src.cxx.o -MF CMakeFiles/cmTC_b961b.dir/src.cxx.o.d -o CMakeFiles/cmTC_b961b.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-fq6xfj/src.cxx
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-lGJFKD
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_49d00 && [1/2] Building CXX object CMakeFiles/cmTC_49d00.dir/src.cxx.o
+warning: unknown warning option '-Wclass-memaccess'; did you mean '-Wclass-varargs'? [-Wunknown-warning-option]
+1 warning generated.
+[2/2] Linking CXX executable cmTC_49d00
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test LINKER_SUPPORTS_COLOR_DIAGNOSTICS failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-peI3AO
+
+Run Build Command(s):/usr/local/bin/ninja cmTC_08879 && [1/2] Building CXX object CMakeFiles/cmTC_08879.dir/src.cxx.o
+[2/2] Linking CXX executable cmTC_08879
+FAILED: cmTC_08879 
+: && /Library/Developer/CommandLineTools/usr/bin/c++ -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default -Wno-noexcept-type -Wnon-virtual-dtor -Wdelete-non-virtual-dtor -Wsuggest-override -Wstring-conversion -Wmisleading-indentation -Wctad-maybe-unsupported -fdiagnostics-color  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -Wl,--color-diagnostics CMakeFiles/cmTC_08879.dir/src.cxx.o -o cmTC_08879   && :
+ld: unknown option: --color-diagnostics
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-NZb3g8
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e71f5/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_e71f5.dir/build.make CMakeFiles/cmTC_e71f5.dir/build
+Building C object CMakeFiles/cmTC_e71f5.dir/src.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc -DC_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Werror -fno-semantic-interposition -MD -MT CMakeFiles/cmTC_e71f5.dir/src.c.o -MF CMakeFiles/cmTC_e71f5.dir/src.c.o.d -o CMakeFiles/cmTC_e71f5.dir/src.c.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-NZb3g8/src.c
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+make[1]: *** [CMakeFiles/cmTC_e71f5.dir/src.c.o] Error 1
+make: *** [cmTC_e71f5/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-qZLB4z
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_07b8c/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_07b8c.dir/build.make CMakeFiles/cmTC_07b8c.dir/build
+Building CXX object CMakeFiles/cmTC_07b8c.dir/src.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Werror -fno-semantic-interposition -std=gnu++17 -MD -MT CMakeFiles/cmTC_07b8c.dir/src.cxx.o -MF CMakeFiles/cmTC_07b8c.dir/src.cxx.o.d -o CMakeFiles/cmTC_07b8c.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-qZLB4z/src.cxx
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+make[1]: *** [CMakeFiles/cmTC_07b8c.dir/src.cxx.o] Error 1
+make: *** [cmTC_07b8c/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-wwtWLk
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_2d5f2/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_2d5f2.dir/build.make CMakeFiles/cmTC_2d5f2.dir/build
+Building CXX object CMakeFiles/cmTC_2d5f2.dir/src.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_CLASS_MEMACCESS_FLAG  -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Wclass-memaccess -std=gnu++17 -MD -MT CMakeFiles/cmTC_2d5f2.dir/src.cxx.o -MF CMakeFiles/cmTC_2d5f2.dir/src.cxx.o.d -o CMakeFiles/cmTC_2d5f2.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-wwtWLk/src.cxx
+warning: unknown warning option '-Wclass-memaccess'; did you mean '-Wclass-varargs'? [-Wunknown-warning-option]
+1 warning generated.
+Linking CXX executable cmTC_2d5f2
+/usr/local/Cellar/cmake/3.25.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d5f2.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++  -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/libomp/lib  CMakeFiles/cmTC_2d5f2.dir/src.cxx.o -o cmTC_2d5f2 
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-mrmiab
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_e804d/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_e804d.dir/build.make CMakeFiles/cmTC_e804d.dir/build
+Building C object CMakeFiles/cmTC_e804d.dir/src.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc -DC_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Werror -fno-semantic-interposition -MD -MT CMakeFiles/cmTC_e804d.dir/src.c.o -MF CMakeFiles/cmTC_e804d.dir/src.c.o.d -o CMakeFiles/cmTC_e804d.dir/src.c.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-mrmiab/src.c
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+make[1]: *** [CMakeFiles/cmTC_e804d.dir/src.c.o] Error 1
+make: *** [cmTC_e804d/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-g9431n
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_c336b/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_c336b.dir/build.make CMakeFiles/cmTC_c336b.dir/build
+Building CXX object CMakeFiles/cmTC_c336b.dir/src.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Werror -fno-semantic-interposition -std=gnu++17 -MD -MT CMakeFiles/cmTC_c336b.dir/src.cxx.o -MF CMakeFiles/cmTC_c336b.dir/src.cxx.o.d -o CMakeFiles/cmTC_c336b.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-g9431n/src.cxx
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+make[1]: *** [CMakeFiles/cmTC_c336b.dir/src.cxx.o] Error 1
+make: *** [cmTC_c336b/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-gDIbyM
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_de5bb/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_de5bb.dir/build.make CMakeFiles/cmTC_de5bb.dir/build
+Building CXX object CMakeFiles/cmTC_de5bb.dir/src.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_CLASS_MEMACCESS_FLAG  -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk   -Wclass-memaccess -std=gnu++17 -MD -MT CMakeFiles/cmTC_de5bb.dir/src.cxx.o -MF CMakeFiles/cmTC_de5bb.dir/src.cxx.o.d -o CMakeFiles/cmTC_de5bb.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-gDIbyM/src.cxx
+warning: unknown warning option '-Wclass-memaccess'; did you mean '-Wclass-varargs'? [-Wunknown-warning-option]
+1 warning generated.
+Linking CXX executable cmTC_de5bb
+/usr/local/Cellar/cmake/3.25.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de5bb.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++  -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/libomp/lib  CMakeFiles/cmTC_de5bb.dir/src.cxx.o -o cmTC_de5bb 
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C SOURCE FILE Test C_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-xgY14H
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_79da2/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_79da2.dir/build.make CMakeFiles/cmTC_79da2.dir/build
+Building C object CMakeFiles/cmTC_79da2.dir/src.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc -DC_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk   -Werror -fno-semantic-interposition -MD -MT CMakeFiles/cmTC_79da2.dir/src.c.o -MF CMakeFiles/cmTC_79da2.dir/src.c.o.d -o CMakeFiles/cmTC_79da2.dir/src.c.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-xgY14H/src.c
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+make[1]: *** [CMakeFiles/cmTC_79da2.dir/src.c.o] Error 1
+make: *** [cmTC_79da2/fast] Error 2
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-CzZcZe
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_a70fe/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_a70fe.dir/build.make CMakeFiles/cmTC_a70fe.dir/build
+Building CXX object CMakeFiles/cmTC_a70fe.dir/src.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_FNO_SEMANTIC_INTERPOSITION  -fPIC  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk   -Werror -fno-semantic-interposition -std=gnu++17 -MD -MT CMakeFiles/cmTC_a70fe.dir/src.cxx.o -MF CMakeFiles/cmTC_a70fe.dir/src.cxx.o.d -o CMakeFiles/cmTC_a70fe.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-CzZcZe/src.cxx
+clang: error: argument unused during compilation: '-fno-semantic-interposition' [-Werror,-Wunused-command-line-argument]
+make[1]: *** [CMakeFiles/cmTC_a70fe.dir/src.cxx.o] Error 1
+make: *** [cmTC_a70fe/fast] Error 2
+
+
+Source file was:
+int main() { return 0; }
+
+Performing C++ SOURCE FILE Test CXX_SUPPORTS_CLASS_MEMACCESS_FLAG failed with the following output:
+Change Dir: /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-eKs5Io
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_d5cb1/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d5cb1.dir/build.make CMakeFiles/cmTC_d5cb1.dir/build
+Building CXX object CMakeFiles/cmTC_d5cb1.dir/src.cxx.o
+/Library/Developer/CommandLineTools/usr/bin/c++ -DCXX_SUPPORTS_CLASS_MEMACCESS_FLAG  -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk   -Wclass-memaccess -std=gnu++17 -MD -MT CMakeFiles/cmTC_d5cb1.dir/src.cxx.o -MF CMakeFiles/cmTC_d5cb1.dir/src.cxx.o.d -o CMakeFiles/cmTC_d5cb1.dir/src.cxx.o -c /Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/CMakeScratch/TryCompile-eKs5Io/src.cxx
+warning: unknown warning option '-Wclass-memaccess'; did you mean '-Wclass-varargs'? [-Wunknown-warning-option]
+1 warning generated.
+Linking CXX executable cmTC_d5cb1
+/usr/local/Cellar/cmake/3.25.0/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d5cb1.dir/link.txt --verbose=1
+/Library/Developer/CommandLineTools/usr/bin/c++  -fPIC -fvisibility-inlines-hidden -Werror=date-time -Werror=unguarded-availability-new -Wall -Wextra -Wno-unused-parameter -Wwrite-strings -Wcast-qual -Wmissing-field-initializers -Wimplicit-fallthrough -Wcovered-switch-default  -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names -L/usr/local/opt/libomp/lib  CMakeFiles/cmTC_d5cb1.dir/src.cxx.o -o cmTC_d5cb1 
+
+
+Source file was:
+int main() { return 0; }
+

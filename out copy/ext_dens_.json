@@ -1,0 +1,247 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "name": "si",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 1,
+          "name": "ti",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 2,
+          "name": "rhoo",
+          "read": false,
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "name": "h",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "name": "fsm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 5,
+          "name": "zz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "name": "tbias",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "name": "sbias",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 253,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 252,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 251,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3
+    }
+  ],
+  "loops_or_calls": [
+    {
+      "outermost_loop_index": 2,
+      "type": "loop_nest"
+    }
+  ],
+  "name": "ext_dens_"
+}

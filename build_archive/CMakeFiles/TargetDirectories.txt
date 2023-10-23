@@ -1,0 +1,12 @@
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/intrinsics_gen.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/omp_gen.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/acc_gen.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/mlir-tablegen-targets.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/mlir-headers.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/mlir-generic-headers.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/mlir-doc.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/edit_cache.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/CMakeFiles/rebuild_cache.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/ops-converter/CMakeFiles/ops-converter.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/ops-converter/CMakeFiles/edit_cache.dir
+/Users/mac/Projects/mlir/cpp-to-ops-converter/build/ops-converter/CMakeFiles/rebuild_cache.dir

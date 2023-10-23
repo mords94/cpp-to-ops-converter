@@ -1,0 +1,3893 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 30,
+          "meta": {
+            "location": {
+              "associated_line": "            -ymassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i, j - 1)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3469
+            }
+          },
+          "name": "ymassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 29,
+          "meta": {
+            "location": {
+              "associated_line": "            -xmassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i - 1, j)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3464
+            }
+          },
+          "name": "xmassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3304,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3303,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3302,
+            "source": "  for (int k = 0; k < kb; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "  ext_smol_adif_(xmassflux, ymassflux, zwflux, ff, sw, fsm, aru, arv, dt, dzz);",
+              "col": 3,
+              "file": "pom2k_fun.c",
+              "line": 3419
+            }
+          },
+          "name": "ext_smol_adif_xmassflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "            (dy[ACC2(i, j)] + dy[ACC2(i, j - 1)]);",
+              "col": 31,
+              "file": "pom2k_fun.c",
+              "line": 3472
+            }
+          },
+          "name": "dy",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 9,
+          "meta": {
+            "location": {
+              "associated_line": "            (dt[ACC2(i - 1, j)] + dt[ACC2(i, j)]) * u[ACC3(i, j, k)];",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 3317
+            }
+          },
+          "name": "u",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 29,
+          "meta": {
+            "location": {
+              "associated_line": "            -xmassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i - 1, j)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3464
+            }
+          },
+          "name": "xmassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jmm1",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3314,
+            "source": "      for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3313,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3312,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 1,
+        "end": 3
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "            (dt[ACC2(i, j - 1)] + dt[ACC2(i, j)]) * v[ACC3(i, j, k)];",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 3327
+            }
+          },
+          "name": "v",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "  ext_smol_adif_(xmassflux, ymassflux, zwflux, ff, sw, fsm, aru, arv, dt, dzz);",
+              "col": 3,
+              "file": "pom2k_fun.c",
+              "line": 3419
+            }
+          },
+          "name": "ext_smol_adif_xmassflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 30,
+          "meta": {
+            "location": {
+              "associated_line": "            -ymassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i, j - 1)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3469
+            }
+          },
+          "name": "ymassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 15,
+          "meta": {
+            "location": {
+              "associated_line": "            dvm[ACC2(i, j)] * (dx[ACC2(i, j)] + dx[ACC2(i, j - 1)]) * 0.5f /",
+              "col": 49,
+              "file": "pom2k_fun.c",
+              "line": 3471
+            }
+          },
+          "name": "dx",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3324,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3323,
+            "source": "    for (int j = 1; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3322,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 2,
+        "end": 4
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fb",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm2",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 21,
+          "meta": {
+            "location": {
+              "associated_line": "      eta[ACC2(i, j)] = etb[ACC2(i, j)];",
+              "col": 25,
+              "file": "pom2k_fun.c",
+              "line": 3334
+            }
+          },
+          "name": "etb",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 28,
+          "meta": {
+            "location": {
+              "associated_line": "      eta[ACC2(i, j)] = etf[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 3423
+            }
+          },
+          "name": "eta",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3333,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3332,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 3,
+        "end": 4
+      },
+      "size": 2
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fb",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 31,
+          "meta": {
+            "location": {
+              "associated_line": "  ext_smol_adif_(xmassflux, ymassflux, zwflux, ff, sw, fsm, aru, arv, dt, dzz);",
+              "col": 3,
+              "file": "pom2k_fun.c",
+              "line": 3419
+            }
+          },
+          "name": "ext_smol_adif_xmassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 27,
+          "meta": {
+            "location": {
+              "associated_line": "        fbmem[ACC3(i, j, k)] = ff[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3430
+            }
+          },
+          "name": "fbmem",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 19,
+          "meta": {
+            "location": {
+              "associated_line": "          w[ACC3(i, j, 0)] * f[ACC3(i, j, 0)] * art[ACC2(i, j)];",
+              "col": 11,
+              "file": "pom2k_fun.c",
+              "line": 3383
+            }
+          },
+          "name": "w",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3341,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3340,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3339,
+            "source": "  for (int k = 0; k < kb; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 4,
+        "end": 6
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 30,
+          "meta": {
+            "location": {
+              "associated_line": "            -ymassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i, j - 1)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3469
+            }
+          },
+          "name": "ymassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                (xflux[ACC3(i + 1, j, k)] - xflux[ACC3(i, j, k)] +",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3492
+            }
+          },
+          "name": "xflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                 yflux[ACC3(i, j + 1, k)] - yflux[ACC3(i, j, k)]) /",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3493
+            }
+          },
+          "name": "yflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 27,
+          "meta": {
+            "location": {
+              "associated_line": "        fbmem[ACC3(i, j, k)] = ff[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3430
+            }
+          },
+          "name": "fbmem",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 29,
+          "meta": {
+            "location": {
+              "associated_line": "            -xmassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i - 1, j)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3464
+            }
+          },
+          "name": "xmassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3354,
+            "source": "      for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3353,
+            "source": "    for (int j = 1; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3352,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 5,
+        "end": 7
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "            (zflux[ACC3(i, j, k)] - zflux[ACC3(i, j, k + 1)]) / dz[k];",
+              "col": 37,
+              "file": "pom2k_fun.c",
+              "line": 3408
+            }
+          },
+          "name": "zflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3373,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3372,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 6,
+        "end": 7
+      },
+      "size": 2
+    },
+    {
+      "args": [
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "          w[ACC3(i, j, 0)] * f[ACC3(i, j, 0)] * art[ACC2(i, j)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3383
+            }
+          },
+          "name": "f",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 20,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 54,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "art",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "            (zflux[ACC3(i, j, k)] - zflux[ACC3(i, j, k + 1)]) / dz[k];",
+              "col": 37,
+              "file": "pom2k_fun.c",
+              "line": 3408
+            }
+          },
+          "name": "zflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 19,
+          "meta": {
+            "location": {
+              "associated_line": "          w[ACC3(i, j, 0)] * f[ACC3(i, j, 0)] * art[ACC2(i, j)];",
+              "col": 11,
+              "file": "pom2k_fun.c",
+              "line": 3383
+            }
+          },
+          "name": "w",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3380,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3379,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 7,
+        "end": 8
+      },
+      "size": 2
+    },
+    {
+      "args": [
+        {
+          "arg_index": 20,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 54,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "art",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 31,
+          "meta": {
+            "location": {
+              "associated_line": "  ext_smol_adif_(xmassflux, ymassflux, zwflux, ff, sw, fsm, aru, arv, dt, dzz);",
+              "col": 3,
+              "file": "pom2k_fun.c",
+              "line": 3419
+            }
+          },
+          "name": "ext_smol_adif_xmassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "            (zflux[ACC3(i, j, k)] - zflux[ACC3(i, j, k + 1)]) / dz[k];",
+              "col": 37,
+              "file": "pom2k_fun.c",
+              "line": 3408
+            }
+          },
+          "name": "zflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 27,
+          "meta": {
+            "location": {
+              "associated_line": "        fbmem[ACC3(i, j, k)] = ff[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3430
+            }
+          },
+          "name": "fbmem",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1",
+        1,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3390,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3389,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3388,
+            "source": "  for (int k = 1; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 8,
+        "end": 10
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 20,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 54,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "art",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "        ff[ACC3(i, j, k)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3489
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                (xflux[ACC3(i + 1, j, k)] - xflux[ACC3(i, j, k)] +",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3492
+            }
+          },
+          "name": "xflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                 yflux[ACC3(i, j + 1, k)] - yflux[ACC3(i, j, k)]) /",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3493
+            }
+          },
+          "name": "yflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "            (zflux[ACC3(i, j, k)] - zflux[ACC3(i, j, k + 1)]) / dz[k];",
+              "col": 37,
+              "file": "pom2k_fun.c",
+              "line": 3408
+            }
+          },
+          "name": "zflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 22,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "etf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "            (zflux[ACC3(i, j, k)] - zflux[ACC3(i, j, k + 1)]) / dz[k];",
+              "col": 65,
+              "file": "pom2k_fun.c",
+              "line": 3408
+            }
+          },
+          "name": "dz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 27,
+          "meta": {
+            "location": {
+              "associated_line": "        fbmem[ACC3(i, j, k)] = ff[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3430
+            }
+          },
+          "name": "fbmem",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 18,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 19,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "h",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 28,
+          "meta": {
+            "location": {
+              "associated_line": "      eta[ACC2(i, j)] = etf[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 3423
+            }
+          },
+          "name": "eta",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3404,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3403,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3402,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 9,
+        "end": 11
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 22,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "etf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 28,
+          "meta": {
+            "location": {
+              "associated_line": "      eta[ACC2(i, j)] = etf[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 3423
+            }
+          },
+          "name": "eta",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3422,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3421,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 10,
+        "end": 11
+      },
+      "size": 2
+    },
+    {
+      "args": [
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "        ff[ACC3(i, j, k)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3489
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 27,
+          "meta": {
+            "location": {
+              "associated_line": "        fbmem[ACC3(i, j, k)] = ff[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3430
+            }
+          },
+          "name": "fbmem",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "kb",
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3429,
+            "source": "      for (int k = 0; k < kb; k++) {"
+          }
+        },
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3428,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3427,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 11,
+        "end": 13
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fb",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fclim",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3443,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3442,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3441,
+            "source": "  for (int k = 0; k < kb; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 12,
+        "end": 14
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "            0.5f * (aam[ACC3(i, j, k)] + aam[ACC3(i, j - 1, k)]);",
+              "col": 42,
+              "file": "pom2k_fun.c",
+              "line": 3455
+            }
+          },
+          "name": "aam",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 30,
+          "meta": {
+            "location": {
+              "associated_line": "            -ymassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i, j - 1)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3469
+            }
+          },
+          "name": "ymassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 29,
+          "meta": {
+            "location": {
+              "associated_line": "            -xmassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i - 1, j)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3464
+            }
+          },
+          "name": "xmassflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3451,
+            "source": "      for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3450,
+            "source": "    for (int j = 1; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3449,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 13,
+        "end": 15
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fb",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 30,
+          "meta": {
+            "location": {
+              "associated_line": "            -ymassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i, j - 1)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3469
+            }
+          },
+          "name": "ymassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "            dum[ACC2(i, j)] * (dy[ACC2(i, j)] + dy[ACC2(i - 1, j)]) * 0.5f /",
+              "col": 13,
+              "file": "pom2k_fun.c",
+              "line": 3466
+            }
+          },
+          "name": "dum",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                (xflux[ACC3(i + 1, j, k)] - xflux[ACC3(i, j, k)] +",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3492
+            }
+          },
+          "name": "xflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 15,
+          "meta": {
+            "location": {
+              "associated_line": "            dvm[ACC2(i, j)] * (dx[ACC2(i, j)] + dx[ACC2(i, j - 1)]) * 0.5f /",
+              "col": 49,
+              "file": "pom2k_fun.c",
+              "line": 3471
+            }
+          },
+          "name": "dx",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "            (dy[ACC2(i, j)] + dy[ACC2(i, j - 1)]);",
+              "col": 31,
+              "file": "pom2k_fun.c",
+              "line": 3472
+            }
+          },
+          "name": "dy",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 14,
+          "meta": {
+            "location": {
+              "associated_line": "            dvm[ACC2(i, j)] * (dx[ACC2(i, j)] + dx[ACC2(i, j - 1)]) * 0.5f /",
+              "col": 13,
+              "file": "pom2k_fun.c",
+              "line": 3471
+            }
+          },
+          "name": "dvm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 18,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 19,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "h",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 29,
+          "meta": {
+            "location": {
+              "associated_line": "            -xmassflux[ACC3(i, j, k)] * (h[ACC2(i, j)] + h[ACC2(i - 1, j)]) *",
+              "col": 14,
+              "file": "pom2k_fun.c",
+              "line": 3464
+            }
+          },
+          "name": "xmassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                 yflux[ACC3(i, j + 1, k)] - yflux[ACC3(i, j, k)]) /",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3493
+            }
+          },
+          "name": "yflux",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3462,
+            "source": "      for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3461,
+            "source": "    for (int j = 1; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3460,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 14,
+        "end": 16
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fb",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "        fb[ACC3(i, j, k)] += fclim[ACC3(i, j, k)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 3480
+            }
+          },
+          "name": "fclim",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3479,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3478,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3477,
+            "source": "  for (int k = 0; k < kb; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 15,
+        "end": 17
+      },
+      "size": 3
+    },
+    {
+      "args": [
+        {
+          "arg_index": 20,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 54,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "art",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "        ff[ACC3(i, j, k)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 3489
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                (xflux[ACC3(i + 1, j, k)] - xflux[ACC3(i, j, k)] +",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3492
+            }
+          },
+          "name": "xflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                 yflux[ACC3(i, j + 1, k)] - yflux[ACC3(i, j, k)]) /",
+              "col": 45,
+              "file": "pom2k_fun.c",
+              "line": 3493
+            }
+          },
+          "name": "yflux",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 22,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "etf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 18,
+          "meta": {
+            "location": {
+              "associated_line": "                ((h[ACC2(i, j)] + etf[ACC2(i, j)]) * art[ACC2(i, j)]);",
+              "col": 19,
+              "file": "pom2k_fun.c",
+              "line": 3494
+            }
+          },
+          "name": "h",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 3488,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 3487,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 3486,
+            "source": "  for (int k = 0; k < kbm1; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 16,
+        "end": 18
+      },
+      "size": 3
+    }
+  ],
+  "name": "ext_advt2_"
+}

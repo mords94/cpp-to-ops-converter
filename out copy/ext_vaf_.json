@@ -1,0 +1,804 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "name": "elf",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 11,
+          "name": "e_atmos",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 12,
+          "name": "dry2d",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 13,
+          "name": "wvsurf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 14,
+          "name": "wvbot",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 0,
+          "name": "vaf",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 1,
+          "name": "ady2d",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 2,
+          "name": "advva",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "name": "arv",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "name": "cor",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 5,
+          "name": "d",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "name": "ua",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "name": "dx",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "name": "el",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 9,
+          "name": "elb",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1561,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1560,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 1
+      },
+      "size": 2
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "name": "vaf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 10,
+          "name": "elf",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "name": "arv",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 15,
+          "name": "h",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 16,
+          "name": "vab",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 9,
+          "name": "elb",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1580,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1579,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 1,
+        "end": 2
+      },
+      "size": 2
+    }
+  ],
+  "loops_or_calls": [
+    {
+      "outermost_loop_index": 1,
+      "type": "loop_nest"
+    },
+    {
+      "outermost_loop_index": 3,
+      "type": "loop_nest"
+    }
+  ],
+  "name": "ext_vaf_"
+}

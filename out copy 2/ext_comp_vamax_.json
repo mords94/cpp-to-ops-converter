@@ -1,0 +1,45 @@
+{
+  "loops": [
+    {
+      "locals": [
+        {
+          "index": 0,
+          "initialValue": "",
+          "location": {
+            "col": 3,
+            "file": "pom2k_fun.c",
+            "line": 1707,
+            "source": "  int jmaxxx;"
+          },
+          "name": "jmaxxx",
+          "type": "int"
+        },
+        {
+          "index": 1,
+          "initialValue": "",
+          "location": {
+            "col": 3,
+            "file": "pom2k_fun.c",
+            "line": 1706,
+            "source": "  int imax;"
+          },
+          "name": "imax",
+          "type": "int"
+        },
+        {
+          "index": 2,
+          "initialValue": "",
+          "location": {
+            "col": 3,
+            "file": "pom2k_fun.c",
+            "line": 1704,
+            "source": "  double vamax = 0.0f;"
+          },
+          "name": "vamax",
+          "type": "double"
+        }
+      ]
+    }
+  ],
+  "name": "ext_comp_vamax_"
+}

@@ -1,0 +1,4090 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "        advua[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1496
+            }
+          },
+          "name": "advua",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1342,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1341,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 1
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                     (ua[ACC2(i + 1, j - 1)] + ua[ACC2(i, j - 1)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1514
+            }
+          },
+          "name": "ua",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1348,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1347,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 1,
+        "end": 2
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                     (ua[ACC2(i + 1, j - 1)] + ua[ACC2(i, j - 1)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1514
+            }
+          },
+          "name": "ua",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "                     (va[ACC2(i - 1, j + 1)] + va[ACC2(i - 1, j)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1502
+            }
+          },
+          "name": "va",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1358,
+            "source": "    for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1357,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 2,
+        "end": 3
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 31,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dx",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "          fluxva[ACC2(i, j)] - d[ACC2(i, j)] * 2.0f * aam2d[ACC2(i, j)] *",
+              "col": 55,
+              "file": "pom2k_fun.c",
+              "line": 1432
+            }
+          },
+          "name": "aam2d",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                         uab[ACC2(i, j - 1)] + uab[ACC2(i + 1, j - 1)])) *",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1476
+            }
+          },
+          "name": "uab",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1368,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1367,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 3,
+        "end": 4
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 31,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dx",
+          "read": true,
+          "read_count": 8,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dy",
+          "read": true,
+          "read_count": 5,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "          fluxva[ACC2(i, j)] - d[ACC2(i, j)] * 2.0f * aam2d[ACC2(i, j)] *",
+              "col": 55,
+              "file": "pom2k_fun.c",
+              "line": 1432
+            }
+          },
+          "name": "aam2d",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                         uab[ACC2(i, j - 1)] + uab[ACC2(i + 1, j - 1)])) *",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1476
+            }
+          },
+          "name": "uab",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "                vab[ACC2(i, j)] * vab[ACC2(i, j)] +",
+              "col": 17,
+              "file": "pom2k_fun.c",
+              "line": 1474
+            }
+          },
+          "name": "vab",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "      fluxua[ACC2(i, j)] = (fluxua[ACC2(i, j)] - tps[ACC2(i, j)]) * .25f *",
+              "col": 50,
+              "file": "pom2k_fun.c",
+              "line": 1441
+            }
+          },
+          "name": "tps",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1377,
+            "source": "    for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1376,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 4,
+        "end": 5
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "        advua[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1496
+            }
+          },
+          "name": "advua",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1397,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1396,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 5,
+        "end": 6
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "        advva[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1508
+            }
+          },
+          "name": "advva",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1404,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1403,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 6,
+        "end": 7
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                     (ua[ACC2(i + 1, j - 1)] + ua[ACC2(i, j - 1)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1514
+            }
+          },
+          "name": "ua",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "                     (va[ACC2(i - 1, j + 1)] + va[ACC2(i - 1, j)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1502
+            }
+          },
+          "name": "va",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1410,
+            "source": "    for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1409,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 7,
+        "end": 8
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "                     (va[ACC2(i - 1, j + 1)] + va[ACC2(i - 1, j)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1502
+            }
+          },
+          "name": "va",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1420,
+            "source": "    for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1419,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 8,
+        "end": 9
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dy",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "          fluxva[ACC2(i, j)] - d[ACC2(i, j)] * 2.0f * aam2d[ACC2(i, j)] *",
+              "col": 55,
+              "file": "pom2k_fun.c",
+              "line": 1432
+            }
+          },
+          "name": "aam2d",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "                vab[ACC2(i, j)] * vab[ACC2(i, j)] +",
+              "col": 17,
+              "file": "pom2k_fun.c",
+              "line": 1474
+            }
+          },
+          "name": "vab",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1430,
+            "source": "    for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1429,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 9,
+        "end": 10
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 31,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dx",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dy",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "      fluxua[ACC2(i, j)] = (fluxua[ACC2(i, j)] - tps[ACC2(i, j)]) * .25f *",
+              "col": 50,
+              "file": "pom2k_fun.c",
+              "line": 1441
+            }
+          },
+          "name": "tps",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1439,
+            "source": "    for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1438,
+            "source": "  for (int j = 1; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 10,
+        "end": 11
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "        advva[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1508
+            }
+          },
+          "name": "advva",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "      advva[ACC2(i, j)] = fluxua[ACC2(i + 1, j)] - fluxua[ACC2(i, j)] +",
+              "col": 52,
+              "file": "pom2k_fun.c",
+              "line": 1449
+            }
+          },
+          "name": "fluxua",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "                          fluxva[ACC2(i, j)] - fluxva[ACC2(i, j - 1)];",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1450
+            }
+          },
+          "name": "fluxva",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1448,
+            "source": "    for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1447,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 11,
+        "end": 12
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                         uab[ACC2(i, j - 1)] + uab[ACC2(i + 1, j - 1)])) *",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1476
+            }
+          },
+          "name": "uab",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "                vab[ACC2(i, j)] * vab[ACC2(i, j)] +",
+              "col": 17,
+              "file": "pom2k_fun.c",
+              "line": 1474
+            }
+          },
+          "name": "vab",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 18,
+          "meta": {
+            "location": {
+              "associated_line": "            -0.5f * (cbc[ACC2(i, j)] + cbc[ACC2(i, j - 1)]) *",
+              "col": 40,
+              "file": "pom2k_fun.c",
+              "line": 1472
+            }
+          },
+          "name": "cbc",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 9,
+          "meta": {
+            "location": {
+              "associated_line": "        wubot[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1457
+            }
+          },
+          "name": "wubot",
+          "read": false,
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 1456,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1455,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 12,
+        "end": 13
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "        wvbot[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1471
+            }
+          },
+          "name": "wvbot",
+          "read": false,
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                         uab[ACC2(i, j - 1)] + uab[ACC2(i + 1, j - 1)])) *",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1476
+            }
+          },
+          "name": "uab",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "                vab[ACC2(i, j)] * vab[ACC2(i, j)] +",
+              "col": 17,
+              "file": "pom2k_fun.c",
+              "line": 1474
+            }
+          },
+          "name": "vab",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 18,
+          "meta": {
+            "location": {
+              "associated_line": "            -0.5f * (cbc[ACC2(i, j)] + cbc[ACC2(i, j - 1)]) *",
+              "col": 40,
+              "file": "pom2k_fun.c",
+              "line": 1472
+            }
+          },
+          "name": "cbc",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 1470,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1469,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 13,
+        "end": 14
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 18,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "curv2d",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 31,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dx",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "                             (dx[ACC2(i, j)] * dy[ACC2(i, j)]);",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1490
+            }
+          },
+          "name": "dy",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                     (ua[ACC2(i + 1, j - 1)] + ua[ACC2(i, j - 1)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1514
+            }
+          },
+          "name": "ua",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "                     (va[ACC2(i - 1, j + 1)] + va[ACC2(i - 1, j)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1502
+            }
+          },
+          "name": "va",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 1484,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1483,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 14,
+        "end": 15
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 18,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "curv2d",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "        advua[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1496
+            }
+          },
+          "name": "advua",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 14,
+          "meta": {
+            "location": {
+              "associated_line": "            aru[ACC2(i, j)] * .25f *",
+              "col": 13,
+              "file": "pom2k_fun.c",
+              "line": 1498
+            }
+          },
+          "name": "aru",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "                     (va[ACC2(i - 1, j + 1)] + va[ACC2(i - 1, j)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1502
+            }
+          },
+          "name": "va",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        2,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 1495,
+            "source": "      for (int i = 2; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1494,
+            "source": "    for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 15,
+        "end": 16
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 18,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "curv2d",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "        advva[ACC2(i, j)] =",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1508
+            }
+          },
+          "name": "advva",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                 curv2d[ACC2(i, j - 1)] * d[ACC2(i, j - 1)] *",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1513
+            }
+          },
+          "name": "d",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                     (ua[ACC2(i + 1, j - 1)] + ua[ACC2(i, j - 1)]));",
+              "col": 48,
+              "file": "pom2k_fun.c",
+              "line": 1514
+            }
+          },
+          "name": "ua",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 15,
+          "meta": {
+            "location": {
+              "associated_line": "            arv[ACC2(i, j)] * .25f *",
+              "col": 13,
+              "file": "pom2k_fun.c",
+              "line": 1510
+            }
+          },
+          "name": "arv",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        2,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 1507,
+            "source": "      for (int i = 1; i < imm1; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1506,
+            "source": "    for (int j = 2; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 16,
+        "end": 17
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_advave_"
+}

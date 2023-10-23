@@ -1,0 +1,130 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "          uf[ACC3(i,j,k)] = 0.0f;",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1808
+            }
+          },
+          "name": "uf",
+          "read": false,
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "          vf[ACC3(i,j,k)] = 0.0f;",
+              "col": 27,
+              "file": "pom2k_fun.c",
+              "line": 1809
+            }
+          },
+          "name": "vf",
+          "read": false,
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 1807,
+            "source": "      for (int i = 1; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1806,
+            "source": "    for (int j = 1; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1805,
+            "source": "  for (int k = 0; k < kb; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_init_horizontal_velocities_"
+}

@@ -1,0 +1,134 @@
+{
+  "loops": [
+    {
+      "_index": 1,
+      "args": [
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "        vamax = fabs(vaf[ACC2(i, j)]);",
+              "col": 22,
+              "file": "test.c",
+              "line": 79
+            }
+          },
+          "name": "vaf",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "constants": [],
+      "locals": [
+        {
+          "_type": "i32",
+          "index": 0,
+          "initialValue": "",
+          "location": {
+            "col": 3,
+            "file": "test.c",
+            "line": 74,
+            "source": "  int jmaxxx;"
+          },
+          "name": "jmaxxx",
+          "type_parsed": "int"
+        },
+        {
+          "_type": "i32",
+          "index": 1,
+          "initialValue": "",
+          "location": {
+            "col": 3,
+            "file": "test.c",
+            "line": 73,
+            "source": "  int imax;"
+          },
+          "name": "imax",
+          "type_parsed": "int"
+        },
+        {
+          "_type": "f32",
+          "index": 2,
+          "initialValue": "0.0f",
+          "location": {
+            "col": 3,
+            "file": "test.c",
+            "line": 71,
+            "source": "  float vamax = 0.0f;"
+          },
+          "name": "vamax",
+          "type_parsed": "float"
+        }
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "test.c",
+            "line": 77,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "test.c",
+            "line": 76,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 1
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_comp_vamax_"
+}

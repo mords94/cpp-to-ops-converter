@@ -1,0 +1,116 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "        out1[ACC3(i, j, k)] = out1[ACC3(i, j, k - 1)];",
+              "col": 29,
+              "file": "test.c",
+              "line": 43
+            }
+          },
+          "name": "out1",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        "kbm3",
+        0
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "test.c",
+            "line": 42,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "test.c",
+            "line": 41,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 24,
+            "file": "test.c",
+            "line": 40,
+            "source": "  for (int k = kbm3; k > 0; k--) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        -1
+      ]
+    }
+  ],
+  "name": "example"
+}

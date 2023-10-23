@@ -532,7 +532,7 @@ public:
     if (testIfTerm(node)) {
       llvm::errs() << "Found term: ";
 
-      if (isa<mlir::BlockArgument>(node->getValue())) {
+      if (node->getValue().isa<mlir::BlockArgument>()) {
         // loop induction with offset 0, e.g.: i
 
         llvm::errs() << "Found loop induction: " << node->getValue() << "\n";

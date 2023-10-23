@@ -1,0 +1,1190 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "      uaf[ACC2(i, j)] = uaf[ACC2(i, j)] * dum[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1030
+            }
+          },
+          "name": "uaf",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 1
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 1
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "name": "imm1",
+                  "type": "global_memref"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 5,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 1
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 1
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "name": "imm1",
+                  "type": "global_memref"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "name": "imm1",
+                  "type": "global_memref"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "      vaf[ACC2(i, j)] = vaf[ACC2(i, j)] * dvm[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1031
+            }
+          },
+          "name": "vaf",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "name": "imm1",
+                  "type": "global_memref"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "    uaf[ACC2(imm1, j)] = uabe[j] + *rfe * sqrtf(grav / h[ACC2(imm2, j)]) *",
+              "col": 26,
+              "file": "pom2k_fun.c",
+              "line": 998
+            }
+          },
+          "name": "uabe",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "    uaf[ACC2(1, j)] = uabw[j] - *rfw * sqrtf(grav / h[ACC2(1, j)]) *",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1005
+            }
+          },
+          "name": "uabw",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 14,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, 1)] = *ramp * vaf[ACC2(i, 1)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1024
+            }
+          },
+          "name": "ramp",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 15,
+          "meta": {
+            "location": {
+              "associated_line": "    uaf[ACC2(imm1, j)] = uabe[j] + *rfe * sqrtf(grav / h[ACC2(imm2, j)]) *",
+              "col": 36,
+              "file": "pom2k_fun.c",
+              "line": 998
+            }
+          },
+          "name": "rfe",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, 1)] = vabs[i] - *rfs * sqrtf(grav / h[ACC2(i, 1)]) *",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 1022
+            }
+          },
+          "name": "h",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 1
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "name": "imm2",
+                  "type": "global_memref"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                                    (el[ACC2(i, 1)] - els[i]);",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 1023
+            }
+          },
+          "name": "el",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 1
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "name": "imm2",
+                  "type": "global_memref"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "                                       (el[ACC2(imm2, j)] - ele[j]);",
+              "col": 61,
+              "file": "pom2k_fun.c",
+              "line": 999
+            }
+          },
+          "name": "ele",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "    uaf[ACC2(1, j)] = uabw[j] - *rfw * sqrtf(grav / h[ACC2(1, j)]) *",
+              "col": 33,
+              "file": "pom2k_fun.c",
+              "line": 1005
+            }
+          },
+          "name": "rfw",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 9,
+          "meta": {
+            "location": {
+              "associated_line": "                                    (el[ACC2(1, j)] - elw[j]);",
+              "col": 55,
+              "file": "pom2k_fun.c",
+              "line": 1006
+            }
+          },
+          "name": "elw",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 994,
+            "source": "  for (int j = 1; j < jmm1; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 0
+      },
+      "size": 1,
+      "steps": [
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "      uaf[ACC2(i, j)] = uaf[ACC2(i, j)] * dum[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1030
+            }
+          },
+          "name": "uaf",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "jmm1",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "                                       (el[ACC2(i, jmm2)] - eln[i]);",
+              "col": 61,
+              "file": "pom2k_fun.c",
+              "line": 1016
+            }
+          },
+          "name": "eln",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "      vaf[ACC2(i, j)] = vaf[ACC2(i, j)] * dvm[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1031
+            }
+          },
+          "name": "vaf",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "jmm1",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 5,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "jmm1",
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "jmm1",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "                                    (el[ACC2(i, 1)] - els[i]);",
+              "col": 55,
+              "file": "pom2k_fun.c",
+              "line": 1023
+            }
+          },
+          "name": "els",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, jmm1)] = vabn[i] + *rfn * sqrtf(grav / h[ACC2(i, jmm2)]) *",
+              "col": 26,
+              "file": "pom2k_fun.c",
+              "line": 1015
+            }
+          },
+          "name": "vabn",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 14,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, 1)] = *ramp * vaf[ACC2(i, 1)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1024
+            }
+          },
+          "name": "ramp",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, 1)] = vabs[i] - *rfs * sqrtf(grav / h[ACC2(i, 1)]) *",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 1022
+            }
+          },
+          "name": "h",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "jmm2",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                                    (el[ACC2(i, 1)] - els[i]);",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 1023
+            }
+          },
+          "name": "el",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 1
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "jmm2",
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, jmm1)] = vabn[i] + *rfn * sqrtf(grav / h[ACC2(i, jmm2)]) *",
+              "col": 36,
+              "file": "pom2k_fun.c",
+              "line": 1015
+            }
+          },
+          "name": "rfn",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 18,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, 1)] = vabs[i] - *rfs * sqrtf(grav / h[ACC2(i, 1)]) *",
+              "col": 33,
+              "file": "pom2k_fun.c",
+              "line": 1022
+            }
+          },
+          "name": "rfs",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "    vaf[ACC2(i, 1)] = vabs[i] - *rfs * sqrtf(grav / h[ACC2(i, 1)]) *",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1022
+            }
+          },
+          "name": "vabs",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1011,
+            "source": "  for (int i = 1; i < imm1; i++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 1,
+        "end": 1
+      },
+      "size": 1,
+      "steps": [
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "      uaf[ACC2(i, j)] = uaf[ACC2(i, j)] * dum[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1030
+            }
+          },
+          "name": "uaf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "      vaf[ACC2(i, j)] = vaf[ACC2(i, j)] * dvm[ACC2(i, j)];",
+              "col": 23,
+              "file": "pom2k_fun.c",
+              "line": 1031
+            }
+          },
+          "name": "vaf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "      uaf[ACC2(i, j)] = uaf[ACC2(i, j)] * dum[ACC2(i, j)];",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1030
+            }
+          },
+          "name": "dum",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "      vaf[ACC2(i, j)] = vaf[ACC2(i, j)] * dvm[ACC2(i, j)];",
+              "col": 43,
+              "file": "pom2k_fun.c",
+              "line": 1031
+            }
+          },
+          "name": "dvm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 1029,
+            "source": "    for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 23,
+            "file": "pom2k_fun.c",
+            "line": 1028,
+            "source": "  for (int j = 0; j < jm; j++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 2,
+        "end": 3
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_bcond_2_"
+}

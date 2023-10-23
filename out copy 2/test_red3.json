@@ -1,0 +1,201 @@
+{
+  "loops": [
+    {
+      "_index": 1,
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "        out1[ACC3(i, j, k)] = in1[ACC3(i, j, k)] + d;",
+              "col": 31,
+              "file": "test.c",
+              "line": 106
+            }
+          },
+          "name": "in1",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "        a = abs(sol - out1[ACC3(i, j, k)]);",
+              "col": 23,
+              "file": "test.c",
+              "line": 107
+            }
+          },
+          "name": "out1",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kb"
+      ],
+      "constants": [
+        {
+          "initialValue": "11.00f",
+          "location": {
+            "col": 16,
+            "file": "test.c",
+            "line": 96,
+            "source": "  real_t sol = 11.00f;"
+          },
+          "name": "sol",
+          "type": "f32",
+          "type_parsed": "real_t"
+        },
+        {
+          "initialValue": "11.00f",
+          "location": {
+            "col": 16,
+            "file": "test.c",
+            "line": 96,
+            "source": "  real_t sol = 11.00f;"
+          },
+          "name": "sol",
+          "type": "f32",
+          "type_parsed": "real_t"
+        }
+      ],
+      "locals": [],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "test.c",
+            "line": 103,
+            "source": "      for (int i = 0; i < im; i++) {"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 25,
+            "file": "test.c",
+            "line": 102,
+            "source": "    for (int j = 0; j < jm; j++) {"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 23,
+            "file": "test.c",
+            "line": 101,
+            "source": "  for (int k = 0; k < kb; k++) {"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "red3"
+}

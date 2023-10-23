@@ -1,0 +1,8 @@
+/Users/mac/Projects/mlir/cpp-to-ops-converter/script/..//ITK_POM2K/pom2k_fun.c:1:10: fatal error: 'math.h' file not found
+#include <math.h>
+         ^~~~~~~~
+      [setLoopDepthAndBoundsAttributes] condition: %9 = arith.cmpi slt, %arg8, %5 : i32
+      [setLoopDepthAndBoundsAttributes] setting step attribute for op: scf.while
+      [setLoopDepthAndBoundsAttributes] setting lb and ub attributes for op: scf.while
+Assertion failed: (detail::isPresent(Val) && "dyn_cast on a non-existent value"), function dyn_cast, file Casting.h, line 660.
+/Users/mac/Projects/mlir/cpp-to-ops-converter/script/..//script/compile.sh: line 12:  2385 Abort trap: 6           $WORKPATH/build/bin/ops-converter $WORKPATH/out/temp.mlir $WORKPATH/ITK_POM2K/pom2k_fun.c --function=$1 $2 > $WORKPATH/out/$1.json

@@ -1,0 +1,1193 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "              mol=(ff[ACC3(i,j,k-1)]-ff[ACC3(i,j,k)])",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 2866
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "            ff[ACC3(i,j,k)]*=fsm[ACC2(i,j)];",
+              "col": 30,
+              "file": "pom2k_fun.c",
+              "line": 2797
+            }
+          },
+          "name": "fsm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        0,
+        "jm",
+        0,
+        "im",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 29,
+            "file": "pom2k_fun.c",
+            "line": 2796,
+            "source": "          for (int j=0; j < jm; j++){"
+          }
+        },
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 2795,
+            "source": "        for (int i=0; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 2794,
+            "source": "      for (int k=0; k < kb; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 2
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "                xmassflux[ACC3(i,j,k)]=0.0f;",
+              "col": 39,
+              "file": "pom2k_fun.c",
+              "line": 2821
+            }
+          },
+          "name": "xmassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 3,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "              mol=(ff[ACC3(i,j,k-1)]-ff[ACC3(i,j,k)])",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 2866
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "              zwflux[ACC3(i,j,k)]=(wdz-w2dt)*mol*(*sw);",
+              "col": 50,
+              "file": "pom2k_fun.c",
+              "line": 2868
+            }
+          },
+          "name": "sw",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "                   /(aru[ACC2(i,j)]*(dt[ACC2(i-1,j)]+dt[ACC2(i,j)]));",
+              "col": 22,
+              "file": "pom2k_fun.c",
+              "line": 2815
+            }
+          },
+          "name": "aru",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "              w2dt=dti2*zwflux[ACC3(i,j,k)]*zwflux[ACC3(i,j,k)]/(dzz[k-1]*dt[ACC2(i,j)]);",
+              "col": 75,
+              "file": "pom2k_fun.c",
+              "line": 2865
+            }
+          },
+          "name": "dt",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jmm1",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 29,
+            "file": "pom2k_fun.c",
+            "line": 2805,
+            "source": "          for (int i=1; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 2804,
+            "source": "        for (int j=1; j < jmm1; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 2803,
+            "source": "      for (int k=0; k < kbm1; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 1,
+        "end": 3
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "               ymassflux[ACC3(i,j,k)]=0.0f;",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 2847
+            }
+          },
+          "name": "ymassflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 3,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "              mol=(ff[ACC3(i,j,k-1)]-ff[ACC3(i,j,k)])",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 2866
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "              zwflux[ACC3(i,j,k)]=(wdz-w2dt)*mol*(*sw);",
+              "col": 50,
+              "file": "pom2k_fun.c",
+              "line": 2868
+            }
+          },
+          "name": "sw",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "                   /(arv[ACC2(i,j)]*(dt[ACC2(i,j-1)]+dt[ACC2(i,j)]));",
+              "col": 22,
+              "file": "pom2k_fun.c",
+              "line": 2841
+            }
+          },
+          "name": "arv",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "              w2dt=dti2*zwflux[ACC3(i,j,k)]*zwflux[ACC3(i,j,k)]/(dzz[k-1]*dt[ACC2(i,j)]);",
+              "col": 75,
+              "file": "pom2k_fun.c",
+              "line": 2865
+            }
+          },
+          "name": "dt",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jm",
+        0,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 29,
+            "file": "pom2k_fun.c",
+            "line": 2831,
+            "source": "          for (int i=1; i < imm1; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 2830,
+            "source": "        for (int j=1; j < jm; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 2829,
+            "source": "      for (int k=0; k < kbm1; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 2,
+        "end": 4
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "                zwflux[ACC3(i,j,k)]=0.0f;",
+              "col": 36,
+              "file": "pom2k_fun.c",
+              "line": 2871
+            }
+          },
+          "name": "zwflux",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 3,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "              mol=(ff[ACC3(i,j,k-1)]-ff[ACC3(i,j,k)])",
+              "col": 38,
+              "file": "pom2k_fun.c",
+              "line": 2866
+            }
+          },
+          "name": "ff",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "              zwflux[ACC3(i,j,k)]=(wdz-w2dt)*mol*(*sw);",
+              "col": 50,
+              "file": "pom2k_fun.c",
+              "line": 2868
+            }
+          },
+          "name": "sw",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "              w2dt=dti2*zwflux[ACC3(i,j,k)]*zwflux[ACC3(i,j,k)]/(dzz[k-1]*dt[ACC2(i,j)]);",
+              "col": 75,
+              "file": "pom2k_fun.c",
+              "line": 2865
+            }
+          },
+          "name": "dt",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 9,
+          "meta": {
+            "location": {
+              "associated_line": "              w2dt=dti2*zwflux[ACC3(i,j,k)]*zwflux[ACC3(i,j,k)]/(dzz[k-1]*dt[ACC2(i,j)]);",
+              "col": 66,
+              "file": "pom2k_fun.c",
+              "line": 2865
+            }
+          },
+          "name": "dzz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1",
+        1,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 29,
+            "file": "pom2k_fun.c",
+            "line": 2856,
+            "source": "          for (int i=1; i < imm1; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 27,
+            "file": "pom2k_fun.c",
+            "line": 2855,
+            "source": "        for (int j=1; j < jmm1; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 25,
+            "file": "pom2k_fun.c",
+            "line": 2854,
+            "source": "      for (int k=1; k < kbm1; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 3,
+        "end": 5
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_smol_adif_"
+}

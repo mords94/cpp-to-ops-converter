@@ -42,11 +42,26 @@ int parseMlir(mlir::MLIRContext &context,
   return 0;
 }
 
-void readSourceFile(llvm::StringRef filename, std::vector<std::string> &lines) {
+// init a map that stores lines associated with filename
+
+llvm::StringMap<std::vector<std::string>> sourceFiles;
+
+static void readSourceFile(llvm::StringRef filename) {
   std::ifstream file(filename.str());
+  std::vector<std::string> lines;
 
   std::string line;
   while (std::getline(file, line)) {
     lines.push_back(line);
   }
+
+  sourceFiles[filename] = lines;
+}
+
+std::vector<std::string> *getSource(llvm::StringRef filename) {
+  if (sourceFiles.count(filename) == 0) {
+    readSourceFile(filename);
+  }
+
+  return &sourceFiles[filename];
 }

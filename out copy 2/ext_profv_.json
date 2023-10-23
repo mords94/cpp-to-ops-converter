@@ -1,0 +1,2435 @@
+{
+  "loops": [
+    {
+      "args": [
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 70,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dhloc",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2115,
+            "source": "    for(int i = 0; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2114,
+            "source": "  for(int j = 0; j < jm; j++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 0,
+        "end": 1
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 0,
+          "meta": {
+            "location": {
+              "associated_line": "      dhloc[ACC2(i, j)] = 0.5f * (h[ACC2(i, j)] + etf[ACC2(i, j)] + h[ACC2(i, j - 1)] + etf[ACC2(i, j - 1)]);",
+              "col": 89,
+              "file": "pom2k_fun.c",
+              "line": 2128
+            }
+          },
+          "name": "etf",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 1,
+          "meta": {
+            "location": {
+              "associated_line": "      dhloc[ACC2(i, j)] = 0.5f * (h[ACC2(i, j)] + etf[ACC2(i, j)] + h[ACC2(i, j - 1)] + etf[ACC2(i, j - 1)]);",
+              "col": 69,
+              "file": "pom2k_fun.c",
+              "line": 2128
+            }
+          },
+          "name": "h",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 70,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dhloc",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2127,
+            "source": "    for(int i = 1; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2126,
+            "source": "  for(int j = 1; j < jm; j++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 1,
+        "end": 2
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "      vf[ACC3(i, j, kbm1 - 1)] = (c[ACC3(i, j, kbm1 - 1)] * gg[ACC3(i, j, kbm2 - 1)] - vf[ACC3(i, j, kbm1 - 1)])",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2229
+            }
+          },
+          "name": "c",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 3,
+          "meta": {
+            "location": {
+              "associated_line": "        c[ACC3(i, j, k)] = (km[ACC3(i, j, k)] + km[ACC3(i, j - 1, k)]) * 0.5f;",
+              "col": 49,
+              "file": "pom2k_fun.c",
+              "line": 2143
+            }
+          },
+          "name": "km",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "im",
+        1,
+        "jm",
+        0,
+        "kb"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 26,
+            "file": "pom2k_fun.c",
+            "line": 2142,
+            "source": "      for(int i = 1; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2141,
+            "source": "    for(int j = 1; j < jm; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2140,
+            "source": "  for(int k = 0; k < kb; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 2,
+        "end": 4
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "      vf[ACC3(i, j, kbm1 - 1)] = (c[ACC3(i, j, kbm1 - 1)] * gg[ACC3(i, j, kbm2 - 1)] - vf[ACC3(i, j, kbm1 - 1)])",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2229
+            }
+          },
+          "name": "c",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "        ee[ACC3(i, j, k)] = a[ACC3(i, j, k)] * gg[ACC3(i, j, k)];",
+              "col": 29,
+              "file": "pom2k_fun.c",
+              "line": 2204
+            }
+          },
+          "name": "a",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "        c[ACC3(i, j, k)] = -(dti2) * (c[ACC3(i, j, k)] + umol) / (dz[k] * dzz[k - 1] * dhloc[ACC2(i, j)] * dhloc[ACC2(i, j)]);",
+              "col": 75,
+              "file": "pom2k_fun.c",
+              "line": 2170
+            }
+          },
+          "name": "dzz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 70,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dhloc",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        0,
+        "kbm2"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 26,
+            "file": "pom2k_fun.c",
+            "line": 2161,
+            "source": "      for(int i = 0; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2160,
+            "source": "    for(int j = 0; j < jm; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2159,
+            "source": "  for(int k = 0; k < kbm2; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 3,
+        "end": 5
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "      vf[ACC3(i, j, kbm1 - 1)] = (c[ACC3(i, j, kbm1 - 1)] * gg[ACC3(i, j, kbm2 - 1)] - vf[ACC3(i, j, kbm1 - 1)])",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2229
+            }
+          },
+          "name": "c",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 6,
+          "meta": {
+            "location": {
+              "associated_line": "        c[ACC3(i, j, k)] = -(dti2) * (c[ACC3(i, j, k)] + umol) / (dz[k] * dzz[k - 1] * dhloc[ACC2(i, j)] * dhloc[ACC2(i, j)]);",
+              "col": 75,
+              "file": "pom2k_fun.c",
+              "line": 2170
+            }
+          },
+          "name": "dzz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 70,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dhloc",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        1,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 26,
+            "file": "pom2k_fun.c",
+            "line": 2169,
+            "source": "      for(int i = 0; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2168,
+            "source": "    for(int j = 0; j < jm; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2167,
+            "source": "  for(int k = 1; k < kbm1; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 4,
+        "end": 6
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 46,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "vf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "        ee[ACC3(i, j, k)] = a[ACC3(i, j, k)] * gg[ACC3(i, j, k)];",
+              "col": 29,
+              "file": "pom2k_fun.c",
+              "line": 2204
+            }
+          },
+          "name": "a",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "ee",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 70,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dhloc",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 9,
+          "meta": {
+            "location": {
+              "associated_line": "      gg[ACC3(i, j, 0)] = (-dti2 * wvsurf[ACC2(i, j)] / (-(dz[0]) * dhloc[ACC2(i, j)]) - vf[ACC3(i, j, 0)]) / (a[ACC3(i, j, 0)] - 1.0f);",
+              "col": 36,
+              "file": "pom2k_fun.c",
+              "line": 2186
+            }
+          },
+          "name": "wvsurf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 89,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "gg",
+          "read": false,
+          "read_count": 0,
+          "read_offsets": [],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "global_constant",
+                  "value": 0
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2184,
+            "source": "    for(int i = 0; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2183,
+            "source": "  for(int j = 0; j < jm; j++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 5,
+        "end": 6
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 46,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "vf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "      vf[ACC3(i, j, kbm1 - 1)] = (c[ACC3(i, j, kbm1 - 1)] * gg[ACC3(i, j, kbm2 - 1)] - vf[ACC3(i, j, kbm1 - 1)])",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2229
+            }
+          },
+          "name": "c",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 4,
+          "meta": {
+            "location": {
+              "associated_line": "        ee[ACC3(i, j, k)] = a[ACC3(i, j, k)] * gg[ACC3(i, j, k)];",
+              "col": 29,
+              "file": "pom2k_fun.c",
+              "line": 2204
+            }
+          },
+          "name": "a",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "ee",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 89,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "gg",
+          "read": true,
+          "read_count": 3,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "k",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        0,
+        "im",
+        0,
+        "jm",
+        1,
+        "kbm2"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 26,
+            "file": "pom2k_fun.c",
+            "line": 2202,
+            "source": "      for(int i = 0; i < im; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2201,
+            "source": "    for(int j = 0; j < jm; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2200,
+            "source": "  for(int k = 1; k < kbm2; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 6,
+        "end": 8
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 46,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "vf",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 2,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 28,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "tps",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 12,
+          "meta": {
+            "location": {
+              "associated_line": "      tps[ACC2(i, j)] = 0.5f * (cbc[ACC2(i, j)] + cbc[ACC2(i, j - 1)])",
+              "col": 51,
+              "file": "pom2k_fun.c",
+              "line": 2225
+            }
+          },
+          "name": "cbc",
+          "read": true,
+          "read_count": 2,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            },
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 13,
+          "meta": {
+            "location": {
+              "associated_line": "                      * sqrtf((0.25f * (ub[ACC3(i, j, kbm1 - 1)] + ub[ACC3(i + 1, j, kbm1 - 1)] + ub[ACC3(i, j - 1, kbm1 - 1)] + ub[ACC3(i+1, j - 1, kbm1 - 1)]))",
+              "col": 130,
+              "file": "pom2k_fun.c",
+              "line": 2226
+            }
+          },
+          "name": "ub",
+          "read": true,
+          "read_count": 4,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": -1,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 1,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            },
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 14,
+          "meta": {
+            "location": {
+              "associated_line": "                      + vb[ACC3(i, j, kbm1 - 1)] * vb[ACC3(i, j, kbm1 - 1)]);",
+              "col": 25,
+              "file": "pom2k_fun.c",
+              "line": 2228
+            }
+          },
+          "name": "vb",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 5,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 53,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dz",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 1,
+              "indexes": [
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "ee",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm2",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 2,
+          "meta": {
+            "location": {
+              "associated_line": "      vf[ACC3(i, j, kbm1 - 1)] = (c[ACC3(i, j, kbm1 - 1)] * gg[ACC3(i, j, kbm2 - 1)] - vf[ACC3(i, j, kbm1 - 1)])",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2229
+            }
+          },
+          "name": "c",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 89,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "gg",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm2",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 17,
+          "meta": {
+            "location": {
+              "associated_line": "                      / (tps[ACC2(i, j)] * dti2 / (-(dz[kbm1 - 1]) * dhloc[ACC2(i, j)]) - 1.0f",
+              "col": 70,
+              "file": "pom2k_fun.c",
+              "line": 2230
+            }
+          },
+          "name": "dhloc",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 15,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 115,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "dvm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2224,
+            "source": "    for(int i = 1; i < imm1; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2223,
+            "source": "  for(int j = 1; j < jmm1; j++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 7,
+        "end": 8
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 46,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "vf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "unknown_with_offset"
+                }
+              ]
+            }
+          ],
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "unknown_with_offset"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "arg_index": 15,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 115,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "dvm",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false
+        },
+        {
+          "arg_index": 7,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 35,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "ee",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "unknown_with_offset"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 8,
+          "meta": {
+            "location": {
+              "associated_line": "        vf[ACC3(i, j, ki - 1)] = (ee[ACC3(i, j, ki - 1)] * vf[ACC3(i, j, ki + 1 - 1)] + gg[ACC3(i, j, ki - 1)]) * dvm[ACC2(i, j)];",
+              "col": 89,
+              "file": "pom2k_fun.c",
+              "line": 2250
+            }
+          },
+          "name": "gg",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "type": "unknown_with_offset"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1",
+        1,
+        "kbm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 26,
+            "file": "pom2k_fun.c",
+            "line": 2249,
+            "source": "      for(int i = 1; i < imm1; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2248,
+            "source": "    for(int j = 1; j < jmm1; j++){"
+          }
+        },
+        {
+          "induction_var": "k",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2246,
+            "source": "  for(int k = 1; k < kbm1; k++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 8,
+        "end": 10
+      },
+      "size": 3,
+      "steps": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "args": [
+        {
+          "arg_index": 10,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 46,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "vf",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 3,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                },
+                {
+                  "name": "kbm1",
+                  "offset": -1,
+                  "type": "global_memref"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 11,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 28,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "tps",
+          "read": true,
+          "read_count": 1,
+          "read_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ],
+          "write": false,
+          "write_count": 0,
+          "write_offsets": []
+        },
+        {
+          "arg_index": 16,
+          "meta": {
+            "location": {
+              "associated_line": "      wvbot[ACC2(i, j)] = -tps[ACC2(i, j)] * vf[ACC3(i, j, kbm1 - 1)];",
+              "col": 25,
+              "file": "pom2k_fun.c",
+              "line": 2263
+            }
+          },
+          "name": "wvbot",
+          "read": false,
+          "write": true,
+          "write_count": 1,
+          "write_offsets": [
+            {
+              "dims": 2,
+              "indexes": [
+                {
+                  "offset": 0,
+                  "stencil": "i",
+                  "type": "induction_var"
+                },
+                {
+                  "offset": 0,
+                  "stencil": "j",
+                  "type": "induction_var"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "bounds": [
+        1,
+        "imm1",
+        1,
+        "jmm1"
+      ],
+      "loop_attributes": [
+        {
+          "induction_var": "i",
+          "location": {
+            "col": 24,
+            "file": "pom2k_fun.c",
+            "line": 2262,
+            "source": "    for(int i = 1; i < imm1; i++){"
+          }
+        },
+        {
+          "induction_var": "j",
+          "location": {
+            "col": 22,
+            "file": "pom2k_fun.c",
+            "line": 2261,
+            "source": "  for(int j = 1; j < jmm1; j++){"
+          }
+        }
+      ],
+      "loop_position_index_range": {
+        "begin": 9,
+        "end": 10
+      },
+      "size": 2,
+      "steps": [
+        1,
+        1
+      ]
+    }
+  ],
+  "name": "ext_profv_"
+}
